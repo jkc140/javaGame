@@ -14,6 +14,9 @@ Game Ideas
      - othello
         - 2d array [x,y]
      - battleship
+        - twist: 
+            - bigger board
+            - special attacks/weapons see webkinz 
   
   
   https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html 
