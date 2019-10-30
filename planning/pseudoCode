@@ -1,0 +1,16 @@
+Game starts
+  - create 5 instances of ship
+    - one instance with length of 2
+    - two instances with length of 3
+    - one instance with lenght of 4
+    - one instance with lenght of 5
+    ^ generate method 
+        - store generated objects in array ??
+          - ships[] gShips= new ships[5]
+            ships[0].length=2;
+            ships[1].length=3;
+            ships[2].length=3;
+            etc
+ - ask user for the inputs of where they want the ships to go
+    - 
+    
