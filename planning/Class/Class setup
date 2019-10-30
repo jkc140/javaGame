@@ -1,3 +1,25 @@
 Classes
   - Ship Class
+      - attributes
+          - position
+          - position hit
+          - size/length
+      - methods
+          - getPos()
+              -gets the location of where the ship is placed
+          - 
+   - Attack Class
+      - attributes
+        - position
+        - getPatternAttack
+      - method
+        - getAttackPos
+            - get the position of where you are attack
+            
+            
   - Position class? or a grid class ?
+
+  - global method
+     - checkHit()
+        -check to see if a boat is hit
+ 
