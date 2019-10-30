@@ -1,2 +1,1 @@
-# javaGame
-Hello
+This program will be recreating battleship using Java with a small twist to the game. Instead of the simple single square attach, there will be alternate options that will let you attact more than one place
