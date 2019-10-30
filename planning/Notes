@@ -1,0 +1,6 @@
+Graphics would just be squares and circles
+  -squares for the ship (they will be solid colours)
+  - circles red and white for the different markers
+      - red = hit
+      - white = miss
+ - squares will form the grid
