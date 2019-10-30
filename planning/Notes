@@ -4,3 +4,12 @@ Graphics would just be squares and circles
       - red = hit
       - white = miss
  - squares will form the grid
+
+
+
+layout
+- board in center/center to left
+
+- input area to the bottom right
+- weapon select located to the top right
+- fire bottom at the very bottom
