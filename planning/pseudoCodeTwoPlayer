@@ -1,0 +1,43 @@
+Game starts
+  - create 5 instances of ship
+    - one instance with length of 2
+    - two instances with length of 3
+    - one instance with lenght of 4
+    - one instance with lenght of 5
+    ^ generate method 
+        - store generated objects in array ??
+          - ships[] gShips= new ships[5]
+            ships[0].length=2;
+            ships[1].length=3;
+            ships[2].length=3;
+            etc
+        - ^ does this again for player 2
+ - ask user for the inputs of where they want the ships to go 
+    - // (one ship at a time)
+    - get info for position and store it in ships[].
+    - check to see if input is valid
+        - if the distance between spaces is the same length of the ship
+        - if the position has been occupied already          
+ - display location of all ships
+    - grey squares
+    ^ does this again for player 2  
+       ^ show red dots on grey squares to show that the ship has been hit
+ - determine who goes first
+ - display the ships for the person going
+ - check to see what type of attack the user wants 
+      - they would hit a button
+          - cross
+          - single
+          - 2x2
+ - ask user for the position of the attack
+ - display where they are attacking on the screen
+ - check to see if they hit the fire button
+ - check to see if the attack matchesz the position of any of the ships
+   - colour the squares white that are misses
+   - colour the squares red that are hits
+   - check to see if any ships have been sunk
+ - switch players turn
+ ^ repeat lines 21 to 38 for the next player
+   
+ - repeat until all ships on one side is sunk
+      
