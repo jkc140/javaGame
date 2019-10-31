@@ -11,6 +11,35 @@ Game starts
             ships[1].length=3;
             ships[2].length=3;
             etc
- - ask user for the inputs of where they want the ships to go
-    - 
-    
+ - ask user for the inputs of where they want the ships to go 
+    - // (one ship at a time)
+    - get info for position and store it in ships[].
+    - check to see if input is valid
+        - if the distance between spaces is the same length of the ship
+        - if the position has been occupied already
+ - display location of all ships
+    - grey squares
+ - determine who goes first
+ - check to see what type of attack the user wants 
+      - they would hit a button
+          - cross
+          - single
+          - 2x2
+ - ask user for the position of the attack
+ - display where they are attacking on the screen
+ - check to see if they hit the fire button
+ - check to see if the attack matchesz the position of any of the ships
+   - colour the squares white that are misses
+   - colour the squares red that are hits
+   - check to see if any ships have been sunk
+ - switch players turn
+   - AI ??
+      - check to see if there was a previous hit
+      - yes
+          - attack around the position of the hit (that is not already attacked)
+      - no
+          - do a random position using random number generator
+      - check to see if any ships have been sunk
+ - switch turns
+ - repeat until all ships on one side is sunk
+      
