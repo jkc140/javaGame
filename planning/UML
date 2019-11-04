@@ -11,7 +11,14 @@ Ship:
     b.)Select position
          - must be within the ?x? board
          - Cannot overlap with another ship
-         - 
+2.)Set the length of the ship
+    a.)Check which ships are avaiable
+         - Carrier, which occupies 5 spaces
+         - Battleship, which occupies 4 spaces
+         - Cruiser, which occupies 3 spaces
+         - Submarine, which occupies 3 spaces
+         - Destroyer, which occupies 2 spaces
+    b.)Check if ship will fit
 
 
 Attack:
@@ -24,3 +31,4 @@ Attack:
     Player enters the position of the attack
     Checks if any of the ships were hit
 
+1.) Player picks what type of attack he wants to use
