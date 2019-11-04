@@ -1,5 +1,5 @@
 Ship:
-   Attributes:
+  Attributes:
     Length
     position
   Behaviours:
@@ -7,7 +7,11 @@ Ship:
     Set the length of the ship 
 
 1.) Get the position from the player
-   
+    a.)Provide instructions
+    b.)Select position
+         - must be within the ?x? board
+         - Cannot overlap with another ship
+         - 
 
 
 Attack:
