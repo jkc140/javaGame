@@ -1,0 +1,17 @@
+Ship:
+   Attributes:
+    Length
+    position
+  Behaviours:
+    Get the position from the player
+    Set the length of the ship 
+
+Attack:
+  Attributes:
+    Position of attack
+    Type of attack
+   
+  Behaviours:
+    Player picks what type of attack he wants to use
+    Player enters the position of the attack
+    Checks if any of the ships were hit
