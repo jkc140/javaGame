@@ -6,6 +6,10 @@ Ship:
     Get the position from the player
     Set the length of the ship 
 
+1.) Get the position from the player
+   
+
+
 Attack:
   Attributes:
     Position of attack
@@ -15,3 +19,4 @@ Attack:
     Player picks what type of attack he wants to use
     Player enters the position of the attack
     Checks if any of the ships were hit
+
