@@ -18,7 +18,10 @@ Classes
             
             
   - Position class? or a grid class ?
-
+      Grid:
+        GridLayout(int rw, int cl):
+        setVgap(int vgap)
+        setHgap(int hgap):
   - global method
      - checkHit()
         -check to see if a boat is hit
