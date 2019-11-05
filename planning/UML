@@ -32,7 +32,7 @@ Attack:
     Checks if any of the ships were hit
 
 1.) Player picks what type of attack he wants to use
-    - Cross
+    - Cross(3 diagonal squares)
     - 2x2
     - Single
 2.) Player enters the position of the attack
