@@ -33,13 +33,14 @@ public class BattleShip extends JPanel{
         int gridSize=10;
         String testing="";
         for(int x=0;x<gridSize;x++){
-            //testing=String.valueOf(char(65+x));
+            
+            testing=String.valueOf((char)(65+x));
             int val=0+(x*50);
             xCoord[x]=val;
             yCoord[x]=val;
             g.drawLine(val, 0, val, maxHeight);
             g.drawLine(0, val,maxLength, val);
-            //g.drawString(, 25, 25);
+            g.drawString(testing, 20+val, 30);
         }
                 //testing
         
