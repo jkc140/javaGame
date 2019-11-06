@@ -16,6 +16,7 @@ public class Ship {
     /**
      * @param args the command line arguments
      */
+    //System.out.println(Arrays.deepToString(board));
     public static void main(String[] args) {
 
         
