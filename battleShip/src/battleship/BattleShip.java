@@ -14,36 +14,38 @@ import javax.swing.*;
  */
 public class BattleShip extends JPanel{
     
-    public static int[] xCoord=new int[10];
-    public static int[] yCoord=new int[10];
+    public static int[] xCoord=new int[12];
+    public static int[] yCoord=new int[12];
     
     
     public static void boardInit(){
         JFrame screen = new JFrame("test");
         BattleShip ship = new BattleShip();
         screen.add(ship);
-        screen.setSize(1000,500);
+        screen.setSize(1000,600);
         screen.setVisible(true);
         screen.setResizable(false);
  
     }
     public void grid(Graphics g){
-        int maxHeight=450;
-        int maxLength=450;
-        int gridSize=10;
+        int maxHeight=500;
+        int maxLength=500;
+        int gridSize=11;
+        int charNum=9;
         String testing="";
         for(int x=0;x<gridSize;x++){
-            
-            testing=String.valueOf((char)(65+x));
             int val=0+(x*50);
             xCoord[x]=val;
             yCoord[x]=val;
             g.drawLine(val, 0, val, maxHeight);
             g.drawLine(0, val,maxLength, val);
-            g.drawString(testing, 20+val, 30);
         }
-                //testing
-        
+        for(int x=0;x<charNum;x++){
+            testing=String.valueOf((char)(65+x));
+            int val=0+(x*50);
+            g.drawString(testing, 70+val, 30);
+            g.drawString(String.valueOf(x),20,80+val);
+        }
     }
     public void paintComponent(Graphics g){
         grid(g);
