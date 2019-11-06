@@ -1,0 +1,29 @@
+Game Ideas
+  - need graphics =(
+      - Brick Breaker
+      - Pong
+          -twist
+            - power ups 
+            - more balls spawn when no goal        
+      - Pac man
+      - Tic Tac Toe
+      - Sudoku (square on map and each has own puzzle)
+      - cross word  (square on map and each has own puzzle)
+      - memory game/ matching game
+      - simon  (patter game)
+      - wii tank game
+        - have to be single player
+        - bad ai
+     - othello
+        - 2d array [x,y]
+     - battleship
+        - twist: 
+            - bigger board
+            - special attacks/weapons see webkinz 
+     - mastermind 
+  
+  SELECTED IDEA
+    - BATTLESHIP
+  
+  
+  https://docs.oracle.com/javase/7/docs/api/java/awt/Graphics.html 

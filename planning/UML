@@ -1,0 +1,40 @@
+Ship:
+  Attributes:
+    Length
+    position
+  Behaviours:
+    Get the position from the player
+    Set the length of the ship 
+
+1.) Get the position from the player
+    a.)Provide instructions
+    b.)Select position
+         - must be within the ?x? board
+         - Cannot overlap with another ship
+2.)Set the length of the ship
+    a.) Check which ships are avaiable
+         - Carrier, which occupies 5 spaces
+         - Battleship, which occupies 4 spaces
+         - Cruiser, which occupies 3 spaces
+         - Submarine, which occupies 3 spaces
+         - Destroyer, which occupies 2 spaces
+    b.) Check if ship will fit
+
+
+Attack:
+  Attributes:
+    Position of attack
+    Type of attack
+   
+  Behaviours:
+    Player picks what type of attack he wants to use
+    Player enters the position of the attack
+    Checks if any of the ships were hit
+
+1.) Player picks what type of attack he wants to use
+    - Cross(3 diagonal squares)
+    - 2x2
+    - Single
+2.) Player enters the position of the attack
+    -  has to be within the ?x? board
+3.) Checks if any of the ships were hit and if it did, was the ship sunk

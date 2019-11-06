@@ -1,0 +1,42 @@
+Classes
+  - Ship Class
+      - attributes
+          - position
+          - position hit
+          - size/length
+      - methods
+          - getPos()
+              -gets the location of where the ship is placed
+          - 
+   - Attack Class
+      - attributes
+        - position
+        - getPatternAttack
+      - method
+        - getAttackPos
+            - get the position of where you are attack
+            
+            
+  - Position class? or a grid class ?
+      Grid:
+        GridLayout( int rw, int cl, int hgap, int vgap): 
+  - Can do a button grid for selection  
+    Code from oracle help centre:
+       import java.awt.*;
+       import java.applet.Applet;
+        public class ButtonGrid extends Applet {
+        public void init() {
+         setLayout(new GridLayout(3,2));
+         add(new Button("1"));
+         add(new Button("2"));
+         add(new Button("3"));
+         add(new Button("4"));
+         add(new Button("5"));
+         add(new Button("6"));
+     }
+ }
+     
+  - global method
+     - checkHit()
+        -check to see if a boat is hit
+ 

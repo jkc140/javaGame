@@ -1,0 +1,20 @@
+Graphics would just be squares and circles
+  -squares for the ship (they will be solid colours)
+  - circles red and white for the different markers
+      - red = hit
+      - white = miss
+ - squares will form the grid
+
+
+
+layout
+- board in center/center to left
+
+- input area to the bottom right
+- weapon select located to the top right
+- fire bottom at the very bottom
+
+
+-single player or two person ???
+    - single player <-- vs AI
+Can use this for reference: https://codereview.stackexchange.com/questions/161680/oop-battleship-console-game-in-java/161695
