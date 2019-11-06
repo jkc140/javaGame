@@ -41,7 +41,7 @@ public class BattleShip extends JPanel{
             g.drawLine(0, val,maxLength, val);
             //g.drawString(, 25, 25);
         }
-                
+                //testing
         
     }
     public void paintComponent(Graphics g){
