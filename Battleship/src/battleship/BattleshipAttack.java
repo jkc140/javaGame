@@ -7,7 +7,7 @@ package battleship;
 
 /**
  *
- * @author Liam
+ * @author Liam.C
  */
 public class BattleshipAttack {
 
