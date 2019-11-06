@@ -5,6 +5,7 @@
  */
 package battleship;
 import java.awt.Canvas;
+import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -32,7 +33,14 @@ public class BattleShip extends JPanel{
         int maxLength=500;
         int gridSize=11;
         int charNum=9;
-        String testing="";
+        String letter="";
+        
+        
+        g.setColor(Color.blue);
+        g.fillRect(50, 50, maxLength-50, maxHeight-50);
+        g.setColor(Color.black);
+        
+        
         for(int x=0;x<gridSize;x++){
             int val=0+(x*50);
             xCoord[x]=val;
@@ -41,9 +49,9 @@ public class BattleShip extends JPanel{
             g.drawLine(0, val,maxLength, val);
         }
         for(int x=0;x<charNum;x++){
-            testing=String.valueOf((char)(65+x));
+            letter=String.valueOf((char)(65+x));
             int val=0+(x*50);
-            g.drawString(testing, 70+val, 30);
+            g.drawString(letter, 70+val, 30);
             g.drawString(String.valueOf(x),20,80+val);
         }
     }
