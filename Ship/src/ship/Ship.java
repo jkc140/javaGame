@@ -9,13 +9,31 @@ package ship;
  *
  * @author S331461103
  */
+
+
 public class Ship {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello world.");
+        
+        
     }
+    int[][] board = new int[20][20]; 
+    private String name;
+    private int size;
+    private int health;
+    
+    private boolean sunk;
+    
+    public Ship(int length, String name){
+    this.name = name;
+    this.size = length;
+    this.health = length;
+    this.sunk = false
+  
+    }
+    
     
 }
