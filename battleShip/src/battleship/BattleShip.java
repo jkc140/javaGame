@@ -13,9 +13,19 @@ import javax.swing.*;
  * @author S331474817
  */
 public class BattleShip extends JPanel{
+    
+    public static int[] xCoord=new int[10];
+    public static int[] yCoord=new int[10];
+    
+    
     public static void boardInit(){
-        
-        
+        JFrame screen = new JFrame("test");
+        BattleShip ship = new BattleShip();
+        screen.add(ship);
+        screen.setSize(1000,500);
+        screen.setVisible(true);
+        screen.setResizable(false);
+ 
     }
     public void grid(Graphics g){
         int maxHeight=450;
@@ -25,6 +35,8 @@ public class BattleShip extends JPanel{
         for(int x=0;x<gridSize;x++){
             //testing=String.valueOf(char(65+x));
             int val=0+(x*50);
+            xCoord[x]=val;
+            yCoord[x]=val;
             g.drawLine(val, 0, val, maxHeight);
             g.drawLine(0, val,maxLength, val);
             //g.drawString(, 25, 25);
@@ -40,12 +52,7 @@ public class BattleShip extends JPanel{
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JFrame screen = new JFrame("test");
-        BattleShip ship = new BattleShip();
-        screen.add(ship);
-        screen.setSize(1000,500);
-        screen.setVisible(true);
-        screen.setResizable(false);
+        boardInit();
     }
     
 }
