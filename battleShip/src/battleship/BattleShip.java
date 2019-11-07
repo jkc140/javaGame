@@ -9,28 +9,24 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.*;
+
 /**
  *
  * @author S331474817
  */
-public class BattleShip extends JPanel{
+public class BattleShip {
 
-    public static int[] xCoord=new int[12];
-    public static int[] yCoord=new int[12];
+        public JButton bAttack1, bAttack2,bAttack3,bFire; //declaring variables as buttons
 
-        public static void boardInit(){
-        JFrame screen = new JFrame("test");
-        BattleShip ship = new BattleShip();
+
+        public static void buttonConfig(){
 
 
         screen.add(ship);
-        //JButton bAttack1, bAttack2,bAttack3,bFire; //declaring variables as buttons
         JButton bAttack1 =new JButton("Normal Attack");
-        screen.setLayout(null);
-        bAttack1.setBounds(0, 0, 60, 20);
-       // JButton bAttack2=new JButton("Cross Attack");
-       // JButton bAttack3=new JButton("2x2 Attack");
-       // JButton bFire=new JButton("fire");
+       /*JButton bAttack2=new JButton("Cross Attack");
+        JButton bAttack3=new JButton("2x2 Attack");
+       JButton bFire=new JButton("fire");*/
         bAttack1.setBounds(100, 30,120,50);
         //bAttack1.setSize(50, 50);
        // bAttack2.setSize(50, 50);
@@ -39,51 +35,24 @@ public class BattleShip extends JPanel{
         //bAttack2.setBounds(600,110,610,160);
         //bAttack3.setBounds(600,190,610,240);
         //bFire.setBounds(600,400,610,450);
-        screen.add(bAttack1);
        // screen.add(bAttack2);
        // screen.add(bAttack3);
 
-        screen.setSize(1000,700);
-        screen.setVisible(true);
-        //screen.setResizable(false);
-        screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
     }
+    public screenInit(){
+      JFrame screen = new JFrame("test");
+      grid gr=new grid();
+      screen.setLayout(null);
+      buttonConfig();
+      screen.add(bAttack1);
+      screen.add(gr);
 
-    public void grid(Graphics g){
-        int maxHeight=500;
-        int maxLength=500;
-        int gridSize=11;
-        int charNum=9;
-        String letter="";
-
-
-        g.setColor(Color.blue);
-        g.fillRect(50, 50, maxLength-50, maxHeight-50);
-        g.setColor(Color.black);
-
-
-        for(int x=0;x<gridSize;x++){
-            int val=0+(x*50);
-            xCoord[x]=val;
-            yCoord[x]=val;
-            g.drawLine(val, 0, val, maxHeight);
-            g.drawLine(0, val,maxLength, val);
-        }
-        for(int x=0;x<charNum;x++){
-            letter=String.valueOf((char)(65+x));
-            int val=0+(x*50);
-            g.drawString(letter, 70+val, 30);
-            g.drawString(String.valueOf(x),20,80+val);
-        }
-    }
-
-    public static void button(){
-
-       //bAttack2.
-    }
-    public void paintComponent(Graphics g){
-        grid(g);
+      screen.setSize(1000,700);
+      screen.setVisible(true);
+      screen.setResizable(false);
+      screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
 
@@ -92,7 +61,7 @@ public class BattleShip extends JPanel{
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        boardInit();
+        screenInit();
     }
 
 }
