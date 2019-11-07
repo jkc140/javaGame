@@ -63,6 +63,22 @@ public class BattleShip {
     	bInit.setVisible(true);
     	bInit.setResizable(false);
     	bInit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	
+    	//Labels
+    	String boatSize="3";
+    	JLabel xCoordStart,yCoordStart,xCoordEnd,yCoordEnd,boat;
+    	boat=new JLabel("Placing " +boatSize);
+    	xCoordStart=new JLabel("Select start x position of boat");
+    	xCoordEnd=new JLabel("Select end x position of boat");
+    	yCoordStart=new JLabel("Select start y position of boat");
+    	yCoordEnd=new JLabel("Select end y position of boat");
+    	
+    	bInit.add(boat);
+    	bInit.add(yCoordEnd);
+    	bInit.add(xCoordEnd);
+    	bInit.add(yCoordStart);
+    	bInit.add(xCoordStart);
+    	
     }
     /**
      * @param args the command line arguments
