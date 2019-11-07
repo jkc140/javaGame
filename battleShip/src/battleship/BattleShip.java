@@ -14,23 +14,23 @@ import javax.swing.*;
  * @author S331474817
  */
 public class BattleShip extends JPanel{
-    
+
     public static int[] xCoord=new int[12];
     public static int[] yCoord=new int[12];
 
         public static void boardInit(){
         JFrame screen = new JFrame("test");
         BattleShip ship = new BattleShip();
-        
-        
+
+
         screen.add(ship);
         //JButton bAttack1, bAttack2,bAttack3,bFire; //declaring variables as buttons
         JButton bAttack1 =new JButton("Normal Attack");
        // JButton bAttack2=new JButton("Cross Attack");
        // JButton bAttack3=new JButton("2x2 Attack");
        // JButton bFire=new JButton("fire");
-        bAttack1.setBounds(600, 30,610,80);
-        bAttack1.setSize(50, 50);
+       bAttack1.setSize(50, 50);
+        //bAttack1.setLocation(600, 30,610,80);
        // bAttack2.setSize(50, 50);
        /// bAttack3.setSize(50, 50);
        // bFire.setSize(50, 50);
@@ -40,27 +40,27 @@ public class BattleShip extends JPanel{
         screen.add(bAttack1);
        // screen.add(bAttack2);
        // screen.add(bAttack3);
-        
+
         button();
         screen.setSize(1000,700);
         screen.setVisible(true);
         //screen.setResizable(false);
- 
+
     }
-    
+
     public void grid(Graphics g){
         int maxHeight=500;
         int maxLength=500;
         int gridSize=11;
         int charNum=9;
         String letter="";
-        
-        
+
+
         g.setColor(Color.blue);
         g.fillRect(50, 50, maxLength-50, maxHeight-50);
         g.setColor(Color.black);
-        
-        
+
+
         for(int x=0;x<gridSize;x++){
             int val=0+(x*50);
             xCoord[x]=val;
@@ -75,15 +75,15 @@ public class BattleShip extends JPanel{
             g.drawString(String.valueOf(x),20,80+val);
         }
     }
-    
+
     public static void button(){
-       
+
        //bAttack2.
     }
     public void paintComponent(Graphics g){
         grid(g);
     }
-    
+
 
     /**
      * @param args the command line arguments
@@ -92,7 +92,7 @@ public class BattleShip extends JPanel{
         // TODO code application logic here
         boardInit();
     }
-    
+
 }
 
 
