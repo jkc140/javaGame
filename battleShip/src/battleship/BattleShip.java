@@ -65,3 +65,4 @@ public class BattleShip {
 
 
 //https://stackoverflow.com/questions/15544549/how-does-paintcomponent-work
+//https://stackoverflow.com/questions/20343667/java-graphics-graphics-panel-and-buttons-panel
