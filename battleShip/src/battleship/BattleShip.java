@@ -29,8 +29,8 @@ public class BattleShip extends JPanel{
        // JButton bAttack2=new JButton("Cross Attack");
        // JButton bAttack3=new JButton("2x2 Attack");
        // JButton bFire=new JButton("fire");
-       bAttack1.setSize(50, 50);
-        //bAttack1.setLocation(600, 30,610,80);
+        bAttack1.setBounds(600, 30,50,50);
+        bAttack1.setSize(50, 50);
        // bAttack2.setSize(50, 50);
        /// bAttack3.setSize(50, 50);
        // bFire.setSize(50, 50);
