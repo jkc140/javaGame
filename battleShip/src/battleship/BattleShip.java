@@ -6,6 +6,7 @@
 package battleship;
 import javax.swing.JFrame;
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -63,11 +64,15 @@ public class BattleShip {
     	bInit.setVisible(true);
     	bInit.setResizable(false);
     	bInit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	//bInit.setLayout(null);
     	
     	//Labels
     	String boatSize="3";
     	JLabel xCoordStart,yCoordStart,xCoordEnd,yCoordEnd,boat;
     	boat=new JLabel("Placing " +boatSize);
+    	Dimension size=boat.preferredSize();
+    	boat.setBounds(30,30,size.width,size.height);
+    	
     	xCoordStart=new JLabel("Select start x position of boat");
     	xCoordEnd=new JLabel("Select end x position of boat");
     	yCoordStart=new JLabel("Select start y position of boat");
