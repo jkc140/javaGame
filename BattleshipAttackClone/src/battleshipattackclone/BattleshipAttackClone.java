@@ -5,6 +5,8 @@
  */
 package battleshipattackclone;
 
+import java.util.Scanner;
+
 /**
  *
  * @author S331462374
@@ -15,7 +17,13 @@ public class BattleshipAttackClone {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+         Scanner input = new Scanner(System.in);  
+        System.out.println("Which attack would you like to choose?");
+        String AttackChoice;
+        String Instruction = "Cross Attack(1)"+"\n"+"2x2(2)"+"\n"+"Single(3)";
+        System.out.println(Instruction);
+        AttackChoice = input.nextLine();
+        
     }
     
 }
