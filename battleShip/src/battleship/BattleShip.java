@@ -57,13 +57,20 @@ public class BattleShip {
       screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-
+    public static void boatInitScreen() {
+    	JFrame bInit=new JFrame("boat setup");
+    	bInit.setSize(500, 300);
+    	bInit.setVisible(true);
+    	bInit.setResizable(false);
+    	bInit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         screenInit();
+        boatInitScreen();
     }
 
 }
