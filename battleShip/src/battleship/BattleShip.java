@@ -29,8 +29,8 @@ public class BattleShip {
     }
     
     public static void textFieldConfig() {
-    	xPos=new JTextField("test");
-    	yPos=new JTextField("test");
+    	xPos=new JTextField("xCoord");
+    	yPos=new JTextField("yCoord");
     	
     	xPos.setBounds(600, 300,120,25);
     	yPos.setBounds(600, 335,120,25);
@@ -38,7 +38,7 @@ public class BattleShip {
     
     public static void screenInit(){
       JFrame screen = new JFrame("test");
-      JPanel test= new grid();
+      JPanel grid= new grid();
       //screen.setLayout(null);
       buttonConfig();
       textFieldConfig();
@@ -50,7 +50,7 @@ public class BattleShip {
       screen.add(xPos);
       screen.add(yPos);
       
-      screen.add(test);
+      screen.add(grid);
 
       screen.setSize(1000,700);
       screen.setVisible(true);
