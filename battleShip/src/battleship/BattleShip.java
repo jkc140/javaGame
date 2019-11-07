@@ -62,7 +62,7 @@ public class BattleShip {
     	JFrame bInit=new JFrame("boat setup");
     	bInit.setSize(500, 300);
     	bInit.setVisible(true);
-    	//bInit.setResizable(false);
+    	bInit.setResizable(false);
     	bInit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	bInit.setLayout(null);
     	
@@ -96,10 +96,33 @@ public class BattleShip {
         bInit.add(yCoordStart);
         bInit.add(yCoordEnd);
     	
-    	
-    	
-    	//LABEL POSITIONING IS ALL MESSED UP
-    	
+    	//JTextFields
+        JTextField xStartInput,xEndInput,yStartInput,yEndInput;
+    	xStartInput=new JTextField("Input start x position");
+        xStartInput.setBounds(225,50,150,20);
+    	bInit.add(xStartInput);
+        
+        xEndInput=new JTextField("Input end x position");
+        xEndInput.setBounds(225,70,150,20);
+    	bInit.add(xEndInput);
+        
+        yStartInput=new JTextField("Input start y position");
+        yStartInput.setBounds(225,90,150,20);
+    	bInit.add(yStartInput);
+        
+        yEndInput=new JTextField("Input end y position");
+        yEndInput.setBounds(225,110,150,20);
+    	bInit.add(yEndInput);
+        
+        //input button
+        JButton submit,reset;
+        submit=new JButton("Submit");
+        submit.setBounds(100, 200, 100, 25);
+        bInit.add(submit);
+        
+        reset=new JButton("reset");
+        reset.setBounds(225, 200, 100, 25);
+        bInit.add(reset);
     }
     /**
      * @param args the command line arguments
