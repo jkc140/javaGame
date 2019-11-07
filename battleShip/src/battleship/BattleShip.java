@@ -62,7 +62,7 @@ public class BattleShip {
     	JFrame bInit=new JFrame("boat setup");
     	bInit.setSize(500, 300);
     	bInit.setVisible(true);
-    	bInit.setResizable(false);
+    	//bInit.setResizable(false);
     	bInit.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	//bInit.setLayout(null);
     	
@@ -70,19 +70,30 @@ public class BattleShip {
     	String boatSize="3";
     	JLabel xCoordStart,yCoordStart,xCoordEnd,yCoordEnd,boat;
     	boat=new JLabel("Placing " +boatSize);
-    	Dimension size=boat.preferredSize();
-    	boat.setBounds(30,30,size.width,size.height);
+    	Dimension bsize=boat.preferredSize();
+    	boat.setBounds(30,30,bsize.width,bsize.height);
     	
     	xCoordStart=new JLabel("Select start x position of boat");
+    	Dimension xStartSize=xCoordStart.preferredSize();
+    	xCoordStart.setBounds(100,50,xStartSize.width,xStartSize.height);
     	xCoordEnd=new JLabel("Select end x position of boat");
+    	Dimension xEndSize=xCoordEnd.preferredSize();
+    	xCoordEnd.setBounds(30,70,xEndSize.width,xEndSize.height);
+
     	yCoordStart=new JLabel("Select start y position of boat");
+    	Dimension yStartSize=yCoordStart.preferredSize();
+    	yCoordStart.setBounds(30,100,yStartSize.width,yStartSize.height);
+    	
     	yCoordEnd=new JLabel("Select end y position of boat");
+    	Dimension yEndSize=yCoordEnd.preferredSize();
+    	xCoordEnd.setBounds(30,200,yEndSize.width,yEndSize.height);    	
     	
     	bInit.add(boat);
     	bInit.add(yCoordEnd);
     	bInit.add(xCoordEnd);
     	bInit.add(yCoordStart);
     	bInit.add(xCoordStart);
+    	//LABEL POSITIONING IS ALL MESSED UP
     	
     }
     /**
@@ -99,3 +110,4 @@ public class BattleShip {
 
 //https://stackoverflow.com/questions/15544549/how-does-paintcomponent-work
 //https://stackoverflow.com/questions/20343667/java-graphics-graphics-panel-and-buttons-panel
+//http://www.java2s.com/Tutorials/Java/Swing_How_to/Layout/Set_location_of_JLabel_in_a_JFrame.htm <-- label position
