@@ -21,7 +21,8 @@ public class Ship {
         private boolean sunk;
         static int[][] position;
         static String[][] board = returnBoard();
-        public static String[] shipName = {};
+        public static String[] shipName = {"Carrier","Battleship","Cruiser","Submarine","Destroyer"};
+        public static int[] shipLength = {5,4,3,3,2};
     
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
