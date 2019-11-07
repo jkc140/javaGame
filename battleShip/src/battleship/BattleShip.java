@@ -20,20 +20,13 @@ public class BattleShip {
 
 
         bAttack1 =new JButton("Normal Attack");
-       /*JButton bAttack2=new JButton("Cross Attack");
-        JButton bAttack3=new JButton("2x2 Attack");
-       JButton bFire=new JButton("fire");*/
+        bAttack2=new JButton("Cross Attack");
+        bAttack3=new JButton("2x2 Attack");
+        bFire=new JButton("fire");
         bAttack1.setBounds(600, 30,120,50);
-        //bAttack1.setSize(50, 50);
-       // bAttack2.setSize(50, 50);
-       /// bAttack3.setSize(50, 50);
-       // bFire.setSize(50, 50);
-        //bAttack2.setBounds(600,110,610,160);
-        //bAttack3.setBounds(600,190,610,240);
-        //bFire.setBounds(600,400,610,450);
-       // screen.add(bAttack2);
-       // screen.add(bAttack3);
-
+        bAttack2.setBounds(600, 100,120,50);
+        bAttack3.setBounds(600, 170,120,50);
+        bFire.setBounds(600, 500,120,50);
 
 
     }
@@ -44,6 +37,9 @@ public class BattleShip {
       buttonConfig();
 
       screen.add(bAttack1);
+      screen.add(bAttack2);
+      screen.add(bAttack3);
+      screen.add(bFire);
       screen.add(test);
 
       screen.setSize(1000,700);
