@@ -76,7 +76,7 @@ public class BattleShip {
        
     	xCoordStart=new JLabel("Select start x position of boat");
     	Dimension xStartSize=xCoordStart.preferredSize();
-    	xCoordStart.setBounds(100,50,xStartSize.width,xStartSize.height);
+    	xCoordStart.setBounds(30,50,xStartSize.width,xStartSize.height);
         
     	xCoordEnd=new JLabel("Select end x position of boat");
     	Dimension xEndSize=xCoordEnd.preferredSize();
@@ -88,13 +88,16 @@ public class BattleShip {
     	
     	yCoordEnd=new JLabel("Select end y position of boat");
     	Dimension yEndSize=yCoordEnd.preferredSize();
-    	xCoordEnd.setBounds(30,110,yEndSize.width,yEndSize.height);    	
+    	yCoordEnd.setBounds(30,110,yEndSize.width,yEndSize.height);    	
     	
     	bInit.add(boat);
-    	bInit.add(yCoordEnd);
-    	bInit.add(xCoordEnd);
-    	bInit.add(yCoordStart);
-    	bInit.add(xCoordStart);
+        bInit.add(xCoordStart);
+        bInit.add(xCoordEnd);
+        bInit.add(yCoordStart);
+        bInit.add(yCoordEnd);
+    	
+    	
+    	
     	//LABEL POSITIONING IS ALL MESSED UP
     	
     }
