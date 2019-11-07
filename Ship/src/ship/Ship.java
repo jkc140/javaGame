@@ -26,7 +26,8 @@ public class Ship {
     
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
-        
+        shipSetup();
+        System.out.println(Arrays.deepToString(board));
     }
         
     public Ship(int length, String name){
@@ -36,8 +37,12 @@ public class Ship {
         this.sunk = false;
         this.position = returnposition(name);
     }
-    public static shipsetup(){
-    
+    public static void shipSetup(){
+        for(int x=0;x < 5;x++){
+            Ship[] battleShip = new Ship[5];
+           
+            battleShip[x] = new Ship(shipLength[x],shipName[x]);
+        }
     }
     
     public static int[][] returnposition(String name){
@@ -55,8 +60,15 @@ public class Ship {
                         shipPos[x][y] = check(axis);
                     }
         }
+        for (int y = shipPos[1][2]; y <= shipPos[2][2]; y ++ ){   
+            for (int x = shipPos[1][1]; x <= shipPos[2][1]; x ++ ){
+                board[x][y] = ("s");
+            }
+        }
         return shipPos;
     }
+
+    
     public static int check(String axis){
         Scanner input = new Scanner(System.in);
         int pos;
@@ -65,7 +77,7 @@ public class Ship {
                     System.out.print("Enter the "+ axis +" value ");
                     String num=input.next();
                     pos = Integer.parseInt(num);
-                        if (pos >= 0 && pos <=20){
+                        if (pos >= 1 && pos <=20){
                         break;
                         }
                         else{
