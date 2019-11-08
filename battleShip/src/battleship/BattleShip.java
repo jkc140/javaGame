@@ -61,7 +61,13 @@ public class BattleShip extends JPanel{
             g.drawString(letter, 70+val, 30);
             g.drawString(String.valueOf(x),20,80+val);
         }
-         Ships C =new Ships(5,"Carrier");
+
+
+        //test
+    }
+    
+    public void shipDraw(Graphics g){
+                Ships C =new Ships(5,"Carrier");
        
         g.setColor(Color.gray);
         /*System.out.println(C.check("x")*50);
@@ -72,19 +78,9 @@ public class BattleShip extends JPanel{
         System.out.println("yStart "+C.shipPos[0][0]);
         System.out.println("xEnd "+C.shipPos[1][1]);
         System.out.println("yEnd "+C.shipPos[1][0]);
-        /*System.out.println("xStart "+B.shipPos[0][1]);
-        System.out.println("yStart "+B.shipPos[0][0]);
-        System.out.println("xEnd "+B.shipPos[1][1]);
-        System.out.println("yEnd "+B.shipPos[1][0]);*/
+        
 
         g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][1]*50, C.shipPos[1][0]*50);
-         Ships B = new Ships(3,"Battleship");
-        g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
-        //test
-    }
-    
-    public void shipDraw(Graphics g){
-       
         /*Ships Cr=new Ships(2,"Cruise");
         Ships S=new Ships(3,"Sub");
         Ships D=new Ships(4,"destroyer");*/
@@ -94,12 +90,18 @@ public class BattleShip extends JPanel{
         g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
         g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
         g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
-
+                 Ships B = new Ships(3,"Battleship");
+         System.out.println("xStart "+B.shipPos[0][1]);
+        System.out.println("yStart "+B.shipPos[0][0]);
+        System.out.println("xEnd "+B.shipPos[1][1]);
+        System.out.println("yEnd "+B.shipPos[1][0]);
+        g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
         
     }
     public int count=0;
     public void paintComponent(Graphics g){
         grid(g);
+        shipDraw(g);
         //System.out.println("count "+count);
         /*while(count==0){
             shipDraw(g);
