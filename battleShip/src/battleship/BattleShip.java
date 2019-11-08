@@ -80,6 +80,7 @@ public class BattleShip extends JPanel{
         g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][1]*50, C.shipPos[1][0]*50);
          Ships B = new Ships(3,"Battleship");
         g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
+        //test
     }
     
     public void shipDraw(Graphics g){
