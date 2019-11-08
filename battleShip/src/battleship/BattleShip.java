@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.*;
+import java.util.Scanner;
 /**
  *
  * @author S331474817
@@ -18,33 +19,19 @@ public class BattleShip extends JPanel{
     public static int[] xCoord=new int[12];
     public static int[] yCoord=new int[12];
 
-        public static void boardInit(){
-        JFrame screen = new JFrame("test");
+        public static void boardInit(int turn){
+        
+        JFrame screen = new JFrame("Player "+turn);
         BattleShip ship = new BattleShip();
         
         
         screen.add(ship);
-        //JButton bAttack1, bAttack2,bAttack3,bFire; //declaring variables as buttons
-        JButton bAttack1 =new JButton("Normal Attack");
-       // JButton bAttack2=new JButton("Cross Attack");
-       // JButton bAttack3=new JButton("2x2 Attack");
-       // JButton bFire=new JButton("fire");
-        bAttack1.setBounds(600, 30,610,80);
-        bAttack1.setSize(50, 50);
-       // bAttack2.setSize(50, 50);
-       /// bAttack3.setSize(50, 50);
-       // bFire.setSize(50, 50);
-        //bAttack2.setBounds(600,110,610,160);
-        //bAttack3.setBounds(600,190,610,240);
-        //bFire.setBounds(600,400,610,450);
-        screen.add(bAttack1);
-       // screen.add(bAttack2);
-       // screen.add(bAttack3);
-        
-        button();
+
         screen.setSize(1000,700);
         screen.setVisible(true);
         //screen.setResizable(false);
+        screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
  
     }
     
@@ -74,14 +61,52 @@ public class BattleShip extends JPanel{
             g.drawString(letter, 70+val, 30);
             g.drawString(String.valueOf(x),20,80+val);
         }
+
+
+        //test
     }
     
-    public static void button(){
+    public void shipDraw(Graphics g){
+                Ships C =new Ships(5,"Carrier");
        
-       //bAttack2.
+        g.setColor(Color.gray);
+        /*System.out.println(C.check("x")*50);
+        System.out.println(C.check("y")*50);
+        System.out.println(C.check("x")*50);
+        System.out.println(C.check("y")*50);*/
+        System.out.println("xStart "+C.shipPos[0][1]);
+        System.out.println("yStart "+C.shipPos[0][0]);
+        System.out.println("xEnd "+C.shipPos[1][1]);
+        System.out.println("yEnd "+C.shipPos[1][0]);
+        
+
+        g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][1]*50, C.shipPos[1][0]*50);
+        /*Ships Cr=new Ships(2,"Cruise");
+        Ships S=new Ships(3,"Sub");
+        Ships D=new Ships(4,"destroyer");*/
+        
+        
+        /*
+        g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
+        g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
+        g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
+                 Ships B = new Ships(3,"Battleship");
+         System.out.println("xStart "+B.shipPos[0][1]);
+        System.out.println("yStart "+B.shipPos[0][0]);
+        System.out.println("xEnd "+B.shipPos[1][1]);
+        System.out.println("yEnd "+B.shipPos[1][0]);
+        g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
+        
     }
+    public int count=0;
     public void paintComponent(Graphics g){
         grid(g);
+        shipDraw(g);
+        //System.out.println("count "+count);
+        /*while(count==0){
+            shipDraw(g);
+            count++;
+        }*/
     }
     
 
@@ -89,8 +114,30 @@ public class BattleShip extends JPanel{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
         // TODO code application logic here
-        boardInit();
+        int ShipP1=5;
+        int ShipP2=5;
+        int turn=1;
+        boardInit(turn);
+       /* do{
+           boolean turnEnd=false;
+           boardInit(turn); 
+           do{
+               String uInput;
+               uInput=sc.nextLine();
+               if(uInput.equalsIgnoreCase("fire")){
+                   turnEnd=false;
+               }
+           }while (turnEnd==true);
+           if(turn==1){
+               turn=0;
+           }
+           else{
+               turn=1;
+           }
+        }while(ShipP1!=0 && ShipP2!=0);
+        */
     }
     
 }
