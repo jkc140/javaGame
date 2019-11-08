@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ship;
 import java.util.*;
 import java.util.Arrays;
@@ -19,10 +15,11 @@ public class Ship {
         private int size;
         private int health;
         private boolean sunk;
-        static int[][] position;
+        static int[][] shipPosition;
         static String[][] board = returnBoard();
         public static String[] shipName = {"Carrier","Battleship","Cruiser","Submarine","Destroyer"};
         public static int[] shipLength = {5,4,3,3,2};
+        public static int[][] shipPos = new int[2][2];
     
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
@@ -35,31 +32,31 @@ public class Ship {
         this.size = length;
         this.health = length;
         this.sunk = false;
-        this.position = returnposition(name,length);
+        Ship.shipPosition = returnposition(name);
     }
     public static void shipSetup(){
 
-        Ship Carrier = new Ship(shipLength[1],shipName[1]);
+        Ship Carrier = new Ship(shipLength[0],shipName[0]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Battleship = new Ship(shipLength[2],shipName[2]);
+        Ship Battleship = new Ship(shipLength[1],shipName[1]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Cruiser = new Ship(shipLength[3],shipName[3]);
+        Ship Cruiser = new Ship(shipLength[2],shipName[2]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Submarine = new Ship(shipLength[4],shipName[4]);
+        Ship Submarine = new Ship(shipLength[3],shipName[3]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Destroyer = new Ship(shipLength[5],shipName[5]);
+        Ship Destroyer = new Ship(shipLength[4],shipName[4]);
         System.out.println(Arrays.deepToString(board));
         
     }
     
-    public static int[][] returnposition(String name, int size){
+    public static int[][] returnposition(String name){
         System.out.println("Enter a position for the: "+name);
         int counter = 0;
-        int[][] shipPos = new int[2][2];
+        
         for(int x=0;x < 2;x++){
                     for(int y=0;y < 2;y++){
                         String axis;
@@ -74,15 +71,34 @@ public class Ship {
                     }
             counter ++;
         }
-        counter = 0;
-        for (int y = shipPos[1][2]; y <= shipPos[2][2]; y ++ ){   
-            for (int x = shipPos[1][1]; x <= shipPos[2][1]; x ++ ){
-                board[x][y] = ("s");
+        if (shipPos[1][0]>shipPos[0][0]){
+            for (int y = shipPos[0][0] - 1; y < shipPos[1][0]; y ++ ){ 
+                newboard(y);
+                }
+            
+            }
+        
+        else{
+            for (int y = shipPos[1][0] - 1; y < shipPos[0][0] ; y ++ ){   
+                newboard(y);   
             }
         }
         return shipPos;
     }
 
+    public static void newboard(int y){
+        if (shipPos[1][1] > shipPos[0][1]){
+            for (int x = shipPos[0][1] - 1; x < shipPos[1][1]; x ++ ){
+                board[y][x] = "s";
+            }
+        }
+        
+        else {
+            for (int x = shipPos[1][1] - 1; x < shipPos[0][1] ; x ++ ){
+                board[y][x] = "s";
+            }
+        }
+    }
     
     public static int check(String axis){
         Scanner input = new Scanner(System.in);
