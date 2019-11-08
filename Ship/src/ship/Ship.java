@@ -38,11 +38,22 @@ public class Ship {
         this.position = returnposition(name);
     }
     public static void shipSetup(){
-        for(int x=0;x < 5;x++){
-            Ship[] battleShip = new Ship[5];
-           
-            battleShip[x] = new Ship(shipLength[x],shipName[x]);
-        }
+
+        Ship Carrier = new Ship(shipLength[1],shipName[1]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship Battleship = new Ship(shipLength[2],shipName[2]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship Cruiser = new Ship(shipLength[3],shipName[3]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship Submarine = new Ship(shipLength[4],shipName[4]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship Destroyer = new Ship(shipLength[5],shipName[5]);
+        System.out.println(Arrays.deepToString(board));
+        
     }
     
     public static int[][] returnposition(String name){
