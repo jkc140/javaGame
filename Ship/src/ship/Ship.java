@@ -69,7 +69,8 @@ public class Ship {
                         else {
                         axis = ("y");
                         }
-                        shipPos[x][y] = check(axis,counter,size);
+                        shipPos[x][y] = check(axis);
+                        
                     }
             counter ++;
         }
@@ -83,7 +84,7 @@ public class Ship {
     }
 
     
-    public static int check(String axis, int count, int val){
+    public static int check(String axis){
         Scanner input = new Scanner(System.in);
         int pos;
         while(true){
@@ -92,10 +93,7 @@ public class Ship {
                     String num=input.next();
                     pos = Integer.parseInt(num);
                         if (pos >= 1 && pos <=20){
-                            if (count == 1){
-                                if (pos )
-                                break;
-                            }
+                           break;
                         }
                         else{
                             System.out.println("Not valid, try again");
