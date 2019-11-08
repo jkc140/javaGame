@@ -35,7 +35,7 @@ public class Ship {
         this.size = length;
         this.health = length;
         this.sunk = false;
-        this.position = returnposition(name);
+        this.position = returnposition(name,length);
     }
     public static void shipSetup(){
 
@@ -56,8 +56,9 @@ public class Ship {
         
     }
     
-    public static int[][] returnposition(String name){
+    public static int[][] returnposition(String name, int size){
         System.out.println("Enter a position for the: "+name);
+        int counter = 0;
         int[][] shipPos = new int[2][2];
         for(int x=0;x < 2;x++){
                     for(int y=0;y < 2;y++){
@@ -68,9 +69,11 @@ public class Ship {
                         else {
                         axis = ("y");
                         }
-                        shipPos[x][y] = check(axis);
+                        shipPos[x][y] = check(axis,counter,size);
                     }
+            counter ++;
         }
+        counter = 0;
         for (int y = shipPos[1][2]; y <= shipPos[2][2]; y ++ ){   
             for (int x = shipPos[1][1]; x <= shipPos[2][1]; x ++ ){
                 board[x][y] = ("s");
@@ -80,7 +83,7 @@ public class Ship {
     }
 
     
-    public static int check(String axis){
+    public static int check(String axis, int count, int val){
         Scanner input = new Scanner(System.in);
         int pos;
         while(true){
@@ -89,7 +92,10 @@ public class Ship {
                     String num=input.next();
                     pos = Integer.parseInt(num);
                         if (pos >= 1 && pos <=20){
-                        break;
+                            if (count == 1){
+                                if (pos )
+                                break;
+                            }
                         }
                         else{
                             System.out.println("Not valid, try again");
