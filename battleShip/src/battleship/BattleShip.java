@@ -10,6 +10,8 @@ import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.util.Scanner;
+import ship.*;
+
 /**
  *
  * @author S331474817
@@ -67,10 +69,11 @@ public class BattleShip extends JPanel{
     }
 
     public void shipDraw(Graphics g){
-                Ships C =new Ships(5,"Carrier");
+        Ship C =new Ship(5,"Carrier");
 
         g.setColor(Color.gray);
-        /*System.out.println(C.check("x")*50);
+        /*
+         * System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);
         System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);*/
@@ -90,8 +93,8 @@ public class BattleShip extends JPanel{
         g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
         g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
         g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
-                 Ships B = new Ships(3,"Battleship");
-         System.out.println("xStart "+B.shipPos[0][1]);
+        Ship B = new Ship(3,"Battleship");
+        System.out.println("xStart "+B.shipPos[0][1]);
         System.out.println("yStart "+B.shipPos[0][0]);
         System.out.println("xEnd "+B.shipPos[1][1]);
         System.out.println("yEnd "+B.shipPos[1][0]);

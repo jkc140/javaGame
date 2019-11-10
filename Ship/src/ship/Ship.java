@@ -26,8 +26,8 @@ public class Ship {
     
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
-        shipSetupP1();
-        shipSetupP2();
+        /*shipSetupP1();
+        shipSetupP2();*/
         System.out.println(Arrays.deepToString(board));
     }
         
@@ -38,7 +38,7 @@ public class Ship {
         this.sunk = false;
         Ship.shipPosition = returnposition(name,length);
     }
-    public static void shipSetupP1(){
+    /*public static void shipSetupP1(){
 
         Ship CarrierP1 = new Ship(shipLength[0],shipName[0]);
         System.out.println(Arrays.deepToString(board));
@@ -73,7 +73,7 @@ public class Ship {
         Ship DestroyerP2 = new Ship(shipLength[4],shipName[4]);
         System.out.println(Arrays.deepToString(board));
         
-    }
+    }*/
     
     public static int[][] returnposition(String name, int length){
         System.out.println("Enter a position for the: "+name);
