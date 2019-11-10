@@ -22,10 +22,12 @@ public class Ship {
         public static String[] shipName = {"Carrier","Battleship","Cruiser","Submarine","Destroyer"};
         public static int[] shipLength = {5,4,3,3,2};
         public static int[][] shipPos = new int[2][2];
+        public static int passCheck = 0;
     
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
-        shipSetup();
+        shipSetupP1();
+        shipSetupP2();
         System.out.println(Arrays.deepToString(board));
     }
         
@@ -34,73 +36,123 @@ public class Ship {
         this.size = length;
         this.health = length;
         this.sunk = false;
-        Ship.shipPosition = returnposition(name);
+        Ship.shipPosition = returnposition(name,length);
     }
-    public static void shipSetup(){
+    public static void shipSetupP1(){
 
-        Ship Carrier = new Ship(shipLength[0],shipName[0]);
+        Ship CarrierP1 = new Ship(shipLength[0],shipName[0]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Battleship = new Ship(shipLength[1],shipName[1]);
+        Ship BattleshipP1 = new Ship(shipLength[1],shipName[1]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Cruiser = new Ship(shipLength[2],shipName[2]);
+        Ship CruiserP1 = new Ship(shipLength[2],shipName[2]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Submarine = new Ship(shipLength[3],shipName[3]);
+        Ship SubmarineP1 = new Ship(shipLength[3],shipName[3]);
         System.out.println(Arrays.deepToString(board));
         
-        Ship Destroyer = new Ship(shipLength[4],shipName[4]);
+        Ship DestroyerP1 = new Ship(shipLength[4],shipName[4]);
+        System.out.println(Arrays.deepToString(board));
+        
+    }
+    public static void shipSetupP2(){
+
+        Ship CarrierP2 = new Ship(shipLength[0],shipName[0]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship BattleshipP2 = new Ship(shipLength[1],shipName[1]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship CruiserP2 = new Ship(shipLength[2],shipName[2]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship SubmarineP2 = new Ship(shipLength[3],shipName[3]);
+        System.out.println(Arrays.deepToString(board));
+        
+        Ship DestroyerP2 = new Ship(shipLength[4],shipName[4]);
         System.out.println(Arrays.deepToString(board));
         
     }
     
-    public static int[][] returnposition(String name){
+    public static int[][] returnposition(String name, int length){
         System.out.println("Enter a position for the: "+name);
         int counter = 0;
-        
-        for(int x=0;x < 2;x++){
-                    for(int y=0;y < 2;y++){
-                        String axis;
-                        if (y == 1){
-                        axis = ("x");
-                        }
-                        else {
-                        axis = ("y");
-                        }
-                        shipPos[x][y] = check(axis);
-                        
-                    }
-            counter ++;
-        }
-        if (shipPos[1][0]>shipPos[0][0]){
-            for (int y = shipPos[0][0] - 1; y < shipPos[1][0]; y ++ ){ 
-                newboard(y);
-                }
-            
-            }
-        
-        else{
-            for (int y = shipPos[1][0] - 1; y < shipPos[0][0] ; y ++ ){   
-                newboard(y);   
-            }
-        }
-        return shipPos;
-    }
+        while (1 == 1 ){
+            for(int x=0;x < 2;x++){
+                        for(int y=0;y < 2;y++){
+                            String axis;
+                            if (y == 1){
+                            axis = ("y");
+                            }
+                            else {
+                            axis = ("x");
+                            }
+                            shipPos[x][y] = check(axis);
 
-    public static void newboard(int y){
-        if (shipPos[1][1] > shipPos[0][1]){
-            for (int x = shipPos[0][1] - 1; x < shipPos[1][1]; x ++ ){
-                board[y][x] = "s";
+                        }
+                counter ++;
+            }
+            int y2 = Math.max(shipPos[0][1], shipPos[1][1]);
+            int x2 = Math.max(shipPos[0][0], shipPos[1][0]);
+
+            int y1 = Math.min(shipPos[0][1], shipPos[1][1]);
+            int x1 = Math.min(shipPos[0][0], shipPos[1][0]);
+            counter = 0;
+            lenCheck(length, x1, y1, x2, y2);
+            overlapCheck(x1, y1, x2, y2);
+            
+            if (passCheck == 2){
+                break;
+            }
+            else {
+                passCheck = 0;
+                System.out.println("Not a valid position, try again");
             }
         }
+       newboard();
+       return shipPos;
+    }
+    
+    public static void lenCheck(int len, int x1, int y1, int x2, int y2){
+    int y = y2 - y1;
+    int x = x2 - x1;
+    
+        if (y == len || x == len){
+            passCheck ++;
+        }
+    }
+    
+    public static void overlapCheck(int x1, int y1, int x2, int y2){
+        int boardOverlapped = 0;
+        for (int y = y1 - 1; y < y2; y ++ ){       
+            for (int x = x1 - 1; x < x2; x ++ ){
+                if (board[x][y] == "s"){
+                    boardOverlapped ++;  
+
+                }
+            }
+        }
+        if (boardOverlapped == 0){
+        passCheck ++;
+        }
+    }
+    
+    public static void newboard(){
+        int y2 = Math.max(shipPos[0][1], shipPos[1][1]);
+        int x2 = Math.max(shipPos[0][0], shipPos[1][0]);
+
+        int y1 = Math.min(shipPos[0][1], shipPos[1][1]);
+        int x1 = Math.min(shipPos[0][0], shipPos[1][0]);
         
-        else {
-            for (int x = shipPos[1][1] - 1; x < shipPos[0][1] ; x ++ ){
-                board[y][x] = "s";
+        for (int y = y1 - 1; y < y2; y ++ ){       
+            for (int x = x1 - 1; x < x2; x ++ ){
+                board[x][y] = "s";
             }
         }
     }
+      
+    
     
     public static int check(String axis){
         Scanner input = new Scanner(System.in);
