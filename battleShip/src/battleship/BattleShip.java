@@ -15,16 +15,16 @@ import java.util.Scanner;
  * @author S331474817
  */
 public class BattleShip extends JPanel{
-    
+
     public static int[] xCoord=new int[12];
     public static int[] yCoord=new int[12];
 
         public static void boardInit(int turn){
-        
+
         JFrame screen = new JFrame("Player "+turn);
         BattleShip ship = new BattleShip();
-        
-        
+
+
         screen.add(ship);
 
         screen.setSize(1000,700);
@@ -32,22 +32,22 @@ public class BattleShip extends JPanel{
         //screen.setResizable(false);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
- 
+
     }
-    
+
     public void grid(Graphics g){
         int maxHeight=500;
         int maxLength=500;
         int gridSize=11;
         int charNum=9;
         String letter="";
-        
-        
+
+
         g.setColor(Color.blue);
         g.fillRect(50, 50, maxLength-50, maxHeight-50);
         g.setColor(Color.black);
-        
-        
+
+
         for(int x=0;x<gridSize;x++){
             int val=0+(x*50);
             xCoord[x]=val;
@@ -65,10 +65,10 @@ public class BattleShip extends JPanel{
 
         //test
     }
-    
+
     public void shipDraw(Graphics g){
                 Ships C =new Ships(5,"Carrier");
-       
+
         g.setColor(Color.gray);
         /*System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);
@@ -78,14 +78,14 @@ public class BattleShip extends JPanel{
         System.out.println("yStart "+C.shipPos[0][0]);
         System.out.println("xEnd "+C.shipPos[1][1]);
         System.out.println("yEnd "+C.shipPos[1][0]);
-        
+
 
         g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][1]*50, C.shipPos[1][0]*50);
         /*Ships Cr=new Ships(2,"Cruise");
         Ships S=new Ships(3,"Sub");
         Ships D=new Ships(4,"destroyer");*/
-        
-        
+
+        //test
         /*
         g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
         g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
@@ -96,7 +96,7 @@ public class BattleShip extends JPanel{
         System.out.println("xEnd "+B.shipPos[1][1]);
         System.out.println("yEnd "+B.shipPos[1][0]);
         g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
-        
+
     }
     public int count=0;
     public void paintComponent(Graphics g){
@@ -108,7 +108,7 @@ public class BattleShip extends JPanel{
             count++;
         }*/
     }
-    
+
 
     /**
      * @param args the command line arguments
@@ -122,7 +122,7 @@ public class BattleShip extends JPanel{
         boardInit(turn);
        /* do{
            boolean turnEnd=false;
-           boardInit(turn); 
+           boardInit(turn);
            do{
                String uInput;
                uInput=sc.nextLine();
@@ -139,7 +139,7 @@ public class BattleShip extends JPanel{
         }while(ShipP1!=0 && ShipP2!=0);
         */
     }
-    
+
 }
 
 
