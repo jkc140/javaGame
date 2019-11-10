@@ -103,6 +103,7 @@ public class Ship {
             overlapCheck(x1, y1, x2, y2);
             
             if (passCheck == 2){
+                newboard();
                 break;
             }
             else {
@@ -110,30 +111,34 @@ public class Ship {
                 System.out.println("Not a valid position, try again");
             }
         }
-       newboard();
+       
        return shipPos;
     }
     
     public static void lenCheck(int len, int x1, int y1, int x2, int y2){
     int y = y2 - y1;
     int x = x2 - x1;
+    System.out.printf("lenght: %d Coordinate 1: %d,%d Coordinate 2: %d,%d Y distance: %d X distance: %d \n", len, x1, y1 , x2, y2, y , x);
     
-        if (y == len || x == len){
+        if (y == len - 1 || x == len - 1){
+            System.out.println("Length check passed");
             passCheck ++;
         }
     }
     
     public static void overlapCheck(int x1, int y1, int x2, int y2){
         int boardOverlapped = 0;
-        for (int y = y1 - 1; y < y2; y ++ ){       
-            for (int x = x1 - 1; x < x2; x ++ ){
+        for (int x = x1 - 1; x < x2; x ++ ){       
+            for (int y = y1 - 1; y < y2; y ++ ){
                 if (board[x][y] == "s"){
                     boardOverlapped ++;  
 
                 }
+
             }
         }
         if (boardOverlapped == 0){
+        System.out.println("Overlap check passed");
         passCheck ++;
         }
     }
@@ -145,8 +150,8 @@ public class Ship {
         int y1 = Math.min(shipPos[0][1], shipPos[1][1]);
         int x1 = Math.min(shipPos[0][0], shipPos[1][0]);
         
-        for (int y = y1 - 1; y < y2; y ++ ){       
-            for (int x = x1 - 1; x < x2; x ++ ){
+        for (int x = x1 - 1; x < x2; x ++ ){       
+            for (int y = y1 - 1; y < y2; y ++ ){
                 board[x][y] = "s";
             }
         }
