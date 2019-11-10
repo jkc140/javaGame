@@ -93,12 +93,12 @@ public class BattleShip extends JPanel{
         g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
         g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
         g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
-        Ship B = new Ship(3,"Battleship");
+       /* Ship B = new Ship(3,"Battleship");
         System.out.println("xStart "+B.shipPos[0][1]);
         System.out.println("yStart "+B.shipPos[0][0]);
         System.out.println("xEnd "+B.shipPos[1][1]);
         System.out.println("yEnd "+B.shipPos[1][0]);
-        g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
+        g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);*/
 
     }
     public int count=0;
