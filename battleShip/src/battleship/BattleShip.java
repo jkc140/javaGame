@@ -92,16 +92,8 @@ public class BattleShip extends JPanel{
         System.out.println("box yS "+C.shipPos[0][1]*50);
         System.out.println("box xe "+C.shipPos[1][0]*50);
         System.out.println("box ye "+C.shipPos[1][1]*50);
-        /*Ships Cr=new Ships(2,"Cruise");
-        Ships S=new Ships(3,"Sub");
-        Ships D=new Ships(4,"destroyer");*/
-
-
-        /*
-        g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
-        g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
-        g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
-        Ship B = new Ship(3,"Battleship");
+       
+        Ship B = new Ship(4,"Battleship");
         System.out.println(B.size);
         System.out.println("xStart "+B.shipPos[0][0]);
         System.out.println("yStart "+B.shipPos[0][1]);
@@ -109,7 +101,7 @@ public class BattleShip extends JPanel{
         System.out.println("yEnd "+B.shipPos[1][1]);
         if(B.shipPos[0][0]==B.shipPos[1][0]) {
         	g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, 50, B.size*50);
-        	g.setColor(Color.green);
+        	//g.setColor(Color.green);
         	g.drawLine(B.shipPos[0][0]*50,  B.shipPos[1][1]*50+50, B.shipPos[0][0]*50+50, B.shipPos[1][1]*50+50);
         	System.out.println("Horizontal");
         }
@@ -118,15 +110,51 @@ public class BattleShip extends JPanel{
             System.out.println("Vertical");
         }
         	
-        //g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.shipPos[1][0]*50, B.shipPos[1][1]*50);
         System.out.println("box xS "+B.shipPos[0][0]*50);
         System.out.println("box yS "+B.shipPos[0][1]*50);
         System.out.println("box xe "+B.shipPos[1][0]*50);
         System.out.println("box ye "+B.shipPos[1][1]*50);
         
-       /* g.setColor(Color.MAGENTA);
-        g.fillRect(50, 150, 150, 50);*/
-        //comment continuation
+        Ship Cr=new Ship(3,"Cruise");
+        System.out.println("xStart "+Cr.shipPos[0][0]);
+        System.out.println("yStart "+Cr.shipPos[0][1]);
+        System.out.println("xEnd "+Cr.shipPos[1][0]);
+        System.out.println("yEnd "+Cr.shipPos[1][1]);
+        if(Cr.shipPos[0][0]==Cr.shipPos[1][0]) {
+        	System.out.println("Drawing Horiz");
+            g.fillRect(Cr.shipPos[0][0]*50, Cr.shipPos[0][1]*50, 50, Cr.size*50);
+
+       	}
+        else if (Cr.shipPos[0][1]==Cr.shipPos[1][1]) {
+        	System.out.println("Drawing Vert");
+            g.fillRect(Cr.shipPos[0][0]*50, Cr.shipPos[0][1]*50, Cr.size*50, 50);
+
+        }
+        
+        
+        Ship S=new Ship(3,"Submarine");
+        if(S.shipPos[0][0]==S.shipPos[1][0]) {
+            g.fillRect(S.shipPos[0][0]*50, S.shipPos[0][1]*50, 50, S.size*50);
+
+       	}
+        else if (S.shipPos[0][1]==S.shipPos[1][1]) {
+            g.fillRect(S.shipPos[0][0]*50, S.shipPos[0][1]*50, S.size*50, 50);
+
+        }
+        Ship D=new Ship(2,"Destroyer");
+        if(D.shipPos[0][0]==D.shipPos[1][0]) {
+            g.fillRect(D.shipPos[0][0]*50, D.shipPos[0][1]*50, 50, D.size*50);
+
+       	}
+        else if (D.shipPos[0][1]==D.shipPos[1][1]) {
+            g.fillRect(D.shipPos[0][0]*50, D.shipPos[0][1]*50, D.size*50, 50);
+
+        }
+
+        /*
+        g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
+        g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
+        g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
     }
     public int count=0;
     public void paintComponent(Graphics g){
