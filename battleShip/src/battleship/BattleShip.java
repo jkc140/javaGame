@@ -75,13 +75,17 @@ public class BattleShip extends JPanel{
         System.out.println(C.check("y")*50);
         System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);*/
-        System.out.println("xStart "+C.shipPos[0][1]);
-        System.out.println("yStart "+C.shipPos[0][0]);
-        System.out.println("xEnd "+C.shipPos[1][1]);
-        System.out.println("yEnd "+C.shipPos[1][0]);
+        System.out.println("xStart "+C.shipPos[0][0]);
+        System.out.println("yStart "+C.shipPos[0][1]);
+        System.out.println("xEnd "+C.shipPos[1][0]);
+        System.out.println("yEnd "+C.shipPos[1][1]);
 
-
-        g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][1]*50, C.shipPos[1][0]*50);
+        
+        g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, C.shipPos[1][0]*50, C.shipPos[1][1]*50);
+        System.out.println("box xS "+C.shipPos[0][0]*50);
+        System.out.println("box yS "+C.shipPos[0][1]*50);
+        System.out.println("box xe "+C.shipPos[1][0]*50);
+        System.out.println("box ye "+C.shipPos[1][1]*50);
         /*Ships Cr=new Ships(2,"Cruise");
         Ships S=new Ships(3,"Sub");
         Ships D=new Ships(4,"destroyer");*/
@@ -92,12 +96,18 @@ public class BattleShip extends JPanel{
         g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
         g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
                  Ship B = new Ship(3,"Battleship");
-         System.out.println("xStart "+B.shipPos[0][1]);
-        System.out.println("yStart "+B.shipPos[0][0]);
-        System.out.println("xEnd "+B.shipPos[1][1]);
-        System.out.println("yEnd "+B.shipPos[1][0]);
-        g.fillRect(B.shipPos[0][1]*50, B.shipPos[0][0]*50, B.shipPos[1][1]*50, B.shipPos[1][0]*50);
-
+         System.out.println("xStart "+B.shipPos[0][0]);
+        System.out.println("yStart "+B.shipPos[0][1]);
+        System.out.println("xEnd "+B.shipPos[1][0]);
+        System.out.println("yEnd "+B.shipPos[1][1]);
+        g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.shipPos[1][0]*50, B.shipPos[1][1]*50);
+        System.out.println("box xS "+B.shipPos[0][0]*50);
+        System.out.println("box yS "+B.shipPos[0][1]*50);
+        System.out.println("box xe "+B.shipPos[1][0]*50);
+        System.out.println("box ye "+B.shipPos[1][1]*50);
+        
+        g.setColor(Color.MAGENTA);
+        g.fillRect(50, 150, 150, 50);
     }
     public int count=0;
     public void paintComponent(Graphics g){
