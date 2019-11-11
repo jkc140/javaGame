@@ -100,14 +100,23 @@ public class BattleShip extends JPanel{
         System.out.println("yStart "+B.shipPos[0][1]);
         System.out.println("xEnd "+B.shipPos[1][0]);
         System.out.println("yEnd "+B.shipPos[1][1]);
-        g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.shipPos[1][0]*50, B.shipPos[1][1]*50);
+        if(B.shipPos[0][0]==B.shipPos[1][0]) {
+        g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, 50, B.shipPos[1][1]*50);
+
+        }
+        else if (B.shipPos[0][1]==B.shipPos[1][1]) {
+            g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.shipPos[1][0]*50, 50);
+
+        }
+        	
+        //g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.shipPos[1][0]*50, B.shipPos[1][1]*50);
         System.out.println("box xS "+B.shipPos[0][0]*50);
         System.out.println("box yS "+B.shipPos[0][1]*50);
         System.out.println("box xe "+B.shipPos[1][0]*50);
         System.out.println("box ye "+B.shipPos[1][1]*50);
         
-        g.setColor(Color.MAGENTA);
-        g.fillRect(50, 150, 150, 50);
+       /* g.setColor(Color.MAGENTA);
+        g.fillRect(50, 150, 150, 50);*/
         //comment continuation
     }
     public int count=0;
