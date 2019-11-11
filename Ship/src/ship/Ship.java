@@ -13,13 +13,13 @@ public class Ship {
      * @param args the command line arguments
      */
         private String name;
-        private int size;
+        public int size;
         private int health;
         private boolean sunk;
         static int[][] shipPosition;
         static String[][] board = returnBoard();
-        public  String[] shipName = {"Carrier","Battleship","Cruiser","Submarine","Destroyer"};
-        public  int[] shipLength = {5,4,3,3,2};
+        public  String shipName ;
+        public  int shipLength;
         public   int[][] shipPos = new int[2][2];
 
     public static void main(String[] args) {
