@@ -72,28 +72,21 @@ public class BattleShip extends JPanel{
         Ship C =new Ship(5,"Carrier");
 
         g.setColor(Color.gray);
-        /*
-         * System.out.println(C.check("x")*50);
-        System.out.println(C.check("y")*50);
-        System.out.println(C.check("x")*50);
-        System.out.println(C.check("y")*50);*/
+        
+
         System.out.println("xStart "+C.shipPos[0][1]);
         System.out.println("yStart "+C.shipPos[0][0]);
-        System.out.println("xEnd "+C.shipPos[1][1]);
-        System.out.println("yEnd "+C.shipPos[1][0]);
-
-
-        g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][1]*50, C.shipPos[1][0]*50);
+        System.out.println("xEnd "+C.shipPos[1][0]);
+        System.out.println("yEnd "+C.shipPos[1][1]);
+        g.fillRect(C.shipPos[0][1]*50, C.shipPos[0][0]*50, C.shipPos[1][0]*50, C.shipPos[1][1]*50);
+        
+        
         /*Ships Cr=new Ships(2,"Cruise");
         Ships S=new Ships(3,"Sub");
         Ships D=new Ships(4,"destroyer");*/
 
-        //test
-        /*
-        g.fillRect(Cr.shipPos[0][1]*50, Cr.shipPos[0][0]*50, Cr.shipPos[1][1]*50, Cr.shipPos[1][0]*50);
-        g.fillRect(S.shipPos[0][1]*50, S.shipPos[0][0]*50, S.shipPos[1][1]*50, S.shipPos[1][0]*50);
-        g.fillRect(D.shipPos[0][1]*50, D.shipPos[0][0]*50, D.shipPos[1][1]*50, D.shipPos[1][0]*50);*/
-       /* Ship B = new Ship(3,"Battleship");
+       
+        /*Ship B = new Ship(3,"Battleship");
         System.out.println("xStart "+B.shipPos[0][1]);
         System.out.println("yStart "+B.shipPos[0][0]);
         System.out.println("xEnd "+B.shipPos[1][1]);
