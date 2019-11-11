@@ -91,7 +91,25 @@ public class BattleShip extends JPanel{
     	D=new Ship(2,"Destroyer");*/
     	pShow=1;
     }
+    public static Ship C2;
+    public static void shipInit2() {
+    	C2 =new Ship(5,"Carrier");
+    }
+    public void shipDraw2(Graphics g){
+        //Ship C =new Ship(5,"Carrier");
 
+    	g.setColor(Color.gray);
+
+
+    		if(C2.shipPos[0][0]==C2.shipPos[1][0]) {
+    			g.fillRect(C2.shipPos[0][0]*50, C2.shipPos[0][1]*50, 50, C2.size*50);
+
+    			}
+    			else if (C2.shipPos[0][1]==C2.shipPos[1][1]) {
+    					g.fillRect(C2.shipPos[0][0]*50, C2.shipPos[0][1]*50, C2.size*50, 50);
+
+    				}
+    }
     public void shipDraw(Graphics g){
                 //Ship C =new Ship(5,"Carrier");
 
@@ -178,9 +196,22 @@ public class BattleShip extends JPanel{
 
        */
     }
+    public void testing(Graphics g) {
+    	g.drawLine(300,300,600,600);
+    }
+    public static int turn=1;
     public void paintComponent(Graphics g){
         grid(g);
+        
         shipDraw(g);
+        if (turn==1) {
+        	shipDraw(g);
+        	turn=0;
+        }
+        else if (turn==0) {
+        	shipDraw2(g);
+        	turn=1;
+        }
         /*while(pShow==1){
         	System.out.println("Drawing boat");
             shipDraw(g);
@@ -192,23 +223,39 @@ public class BattleShip extends JPanel{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        
-        shipInit();
-        System.out.println(pShow);
-        boardInit(0);
-        try{
-        	TimeUnit.SECONDS.sleep(5);
+    public static void delay(int time) {
+    	try{
+        	TimeUnit.SECONDS.sleep(time);
         }catch(Exception e) {
         	
         }
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        
+       /* shipInit();
+        System.out.println(pShow);
+        boardInit(0);
+        delay(5);
         screen.hide();
         
         
         shipInit();
         boardP2();
-       
+        delay(5);
+        screen2.hide();
+        screen.show();
+        screen.repaint();*/
+        shipInit();
+        boardInit(0);
+        
+        delay(3);
+        screen.hide();
+        delay(3);
+        shipInit2();
+        screen.show();
+        screen.repaint();
+        
         
         System.out.println("End");
         // TODO code application logic here
