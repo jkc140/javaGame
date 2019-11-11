@@ -60,7 +60,7 @@ public class BattleShip extends JPanel{
             int val=0+(x*50);
             g.drawString(letter, 70+val, 30);
             g.drawString(String.valueOf(x),20,80+val);
-        }
+        }//
     }
    
 
