@@ -108,6 +108,7 @@ public class BattleShip extends JPanel{
         
         g.setColor(Color.MAGENTA);
         g.fillRect(50, 150, 150, 50);
+        //comment continuation
     }
     public int count=0;
     public void paintComponent(Graphics g){
@@ -118,6 +119,7 @@ public class BattleShip extends JPanel{
             shipDraw(g);
             count++;
         }*/
+        
     }
 
 
