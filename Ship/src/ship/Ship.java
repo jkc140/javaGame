@@ -21,7 +21,6 @@ public class Ship {
         public  String[] shipName = {"Carrier","Battleship","Cruiser","Submarine","Destroyer"};
         public  int[] shipLength = {5,4,3,3,2};
         public   int[][] shipPos = new int[2][2];
-        public static int passCheck = 0;
 
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
@@ -52,7 +51,6 @@ public class Ship {
                             else {
                             axis = ("x");
                             }
-                        	System.out.println("Getting check "+passCheck);
                             shipPos[x][y] = check(axis);
 
                         }
@@ -67,14 +65,11 @@ public class Ship {
 
 
             if ((lenCheck(length, x1, y1, x2, y2)==true) &&(overlapCheck(x1, y1, x2, y2)==true)){
-                //newboard();
-            	//System.out.println("true check "+passCheck);
+
 
                 break;
             }
             else {
-            	//System.out.println("invalid check "+passCheck);
-                passCheck = 0;
                 System.out.println("Not a valid position, try again");
             }
         }
@@ -91,11 +86,10 @@ public class Ship {
         if (y == len - 1 || x == len - 1){
             System.out.println("Length check passed");
 
-            passCheck ++;
-        	System.out.println("Length check "+passCheck);
         	return true;
         }
         else {
+        	System.out.println("Incorrect length");
         	return false;
         }
 
@@ -116,8 +110,6 @@ public class Ship {
 
         if (boardOverlapped == 0){
         System.out.println("Overlap check passed");
-        passCheck ++;
-    	System.out.println("boardOVer check "+passCheck);
     	return true;
         }
         else {
