@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import java.util.Scanner;
 import ship.*;
+import java.util.concurrent.TimeUnit;
 /**
  *
  * @author S331474817
@@ -19,12 +20,11 @@ public class BattleShip extends JPanel{
 
     public static int[] xCoord=new int[12];
     public static int[] yCoord=new int[12];
-
+    public static JFrame screen, screen2 ;
         public static void boardInit(int turn){
 
-        JFrame screen = new JFrame("Player "+turn);
+        screen = new JFrame("Player "+turn);
         BattleShip ship = new BattleShip();
-
 
         screen.add(ship);
 
@@ -35,6 +35,17 @@ public class BattleShip extends JPanel{
 
 
     }
+        public static void boardP2() {
+        	screen2 = new JFrame("Player 2");
+            BattleShip ship = new BattleShip();
+
+            screen2.add(ship);
+
+            screen2.setSize(1000,700);
+            screen2.setVisible(true);
+            //screen.setResizable(false);
+            screen2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
 
     public void grid(Graphics g){
         int maxHeight=500;
@@ -71,13 +82,16 @@ public class BattleShip extends JPanel{
     public static Ship Cr;
     public static Ship S;
     public static Ship D;
+    public static int pShow=0;
     public static void shipInit() {
     	C =new Ship(5,"Carrier");
-    	B = new Ship(4,"Battleship");
+    	/*B = new Ship(4,"Battleship");
     	Cr=new Ship(3,"Cruise");
     	S=new Ship(3,"Submarine");
-    	D=new Ship(2,"Destroyer");
+    	D=new Ship(2,"Destroyer");*/
+    	pShow=1;
     }
+
     public void shipDraw(Graphics g){
                 //Ship C =new Ship(5,"Carrier");
 
@@ -86,10 +100,10 @@ public class BattleShip extends JPanel{
         System.out.println(C.check("y")*50);
         System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);*/
-        System.out.println("xStart "+C.shipPos[0][0]);
+       /* System.out.println("xStart "+C.shipPos[0][0]);
         System.out.println("yStart "+C.shipPos[0][1]);
         System.out.println("xEnd "+C.shipPos[1][0]);
-        System.out.println("yEnd "+C.shipPos[1][1]);
+        System.out.println("yEnd "+C.shipPos[1][1]);*/
 
         if(C.shipPos[0][0]==C.shipPos[1][0]) {
             g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, 50, C.size*50);
@@ -164,16 +178,14 @@ public class BattleShip extends JPanel{
 
        */
     }
-    public int count=0;
     public void paintComponent(Graphics g){
         grid(g);
         shipDraw(g);
-       /* System.out.println("count "+count);
-        while(count<=2){
+        /*while(pShow==1){
+        	System.out.println("Drawing boat");
             shipDraw(g);
-            count++;
-        }*/
-        
+        }
+        */
     }
 
 
@@ -182,8 +194,23 @@ public class BattleShip extends JPanel{
      */
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
+        
         shipInit();
+        System.out.println(pShow);
         boardInit(0);
+        try{
+        	TimeUnit.SECONDS.sleep(5);
+        }catch(Exception e) {
+        	
+        }
+        screen.hide();
+        
+        
+        shipInit();
+        boardP2();
+       
+        
+        System.out.println("End");
         // TODO code application logic here
        /* int ShipP1=5;
         int ShipP2=5;
