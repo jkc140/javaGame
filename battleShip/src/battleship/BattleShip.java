@@ -66,9 +66,20 @@ public class BattleShip extends JPanel{
 
         //test
     }
-
+    public static Ship C;
+    public static Ship B;
+    public static Ship Cr;
+    public static Ship S;
+    public static Ship D;
+    public static void shipInit() {
+    	C =new Ship(5,"Carrier");
+    	B = new Ship(4,"Battleship");
+    	Cr=new Ship(3,"Cruise");
+    	S=new Ship(3,"Submarine");
+    	D=new Ship(2,"Destroyer");
+    }
     public void shipDraw(Graphics g){
-                Ship C =new Ship(5,"Carrier");
+                //Ship C =new Ship(5,"Carrier");
 
         g.setColor(Color.gray);
         /*System.out.println(C.check("x")*50);
@@ -88,7 +99,7 @@ public class BattleShip extends JPanel{
             g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, C.size*50, 50);
 
         }
-        System.out.println("box xS "+C.shipPos[0][0]*50);
+       /* System.out.println("box xS "+C.shipPos[0][0]*50);
         System.out.println("box yS "+C.shipPos[0][1]*50);
         System.out.println("box xe "+C.shipPos[1][0]*50);
         System.out.println("box ye "+C.shipPos[1][1]*50);
@@ -151,14 +162,14 @@ public class BattleShip extends JPanel{
 
         }
 
-        
+       */
     }
     public int count=0;
     public void paintComponent(Graphics g){
         grid(g);
         shipDraw(g);
-        //System.out.println("count "+count);
-        /*while(count==0){
+       /* System.out.println("count "+count);
+        while(count<=2){
             shipDraw(g);
             count++;
         }*/
@@ -171,15 +182,19 @@ public class BattleShip extends JPanel{
      */
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
+        shipInit();
+        boardInit(0);
         // TODO code application logic here
-        int ShipP1=5;
+       /* int ShipP1=5;
         int ShipP2=5;
         int turn=1;
-        boardInit(turn);
-       /* do{
+        //boardInit(turn);
+        do{
+        	System.out.println("Running a game");
            boolean turnEnd=false;
            boardInit(turn);
            do{
+        	   System.out.println("running a turn");
                String uInput;
                uInput=sc.nextLine();
                if(uInput.equalsIgnoreCase("fire")){
@@ -192,8 +207,8 @@ public class BattleShip extends JPanel{
            else{
                turn=1;
            }
-        }while(ShipP1!=0 && ShipP2!=0);
-        */
+        }while(ShipP1!=0 && ShipP2!=0);*/
+        
     }
 
 }
