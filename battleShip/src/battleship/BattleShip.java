@@ -68,30 +68,30 @@ public class BattleShip extends JPanel{
     }
 
     public void shipDraw(Graphics g){
-       //         Ship C =new Ship(5,"Carrier");
+                Ship C =new Ship(5,"Carrier");
 
         g.setColor(Color.gray);
         /*System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);
         System.out.println(C.check("x")*50);
         System.out.println(C.check("y")*50);*/
-       /* System.out.println("xStart "+C.shipPos[0][0]);
+        System.out.println("xStart "+C.shipPos[0][0]);
         System.out.println("yStart "+C.shipPos[0][1]);
         System.out.println("xEnd "+C.shipPos[1][0]);
         System.out.println("yEnd "+C.shipPos[1][1]);
 
         if(C.shipPos[0][0]==C.shipPos[1][0]) {
-            g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, C.shipPos[1][0]*50, C.shipPos[1][1]*50);
+            g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, 50, C.size*50);
 
        	}
         else if (C.shipPos[0][1]==C.shipPos[1][1]) {
-            g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, C.shipPos[1][0]*50, C.shipPos[1][1]*50);
+            g.fillRect(C.shipPos[0][0]*50, C.shipPos[0][1]*50, C.size*50, 50);
 
         }
         System.out.println("box xS "+C.shipPos[0][0]*50);
         System.out.println("box yS "+C.shipPos[0][1]*50);
         System.out.println("box xe "+C.shipPos[1][0]*50);
-        System.out.println("box ye "+C.shipPos[1][1]*50);*/
+        System.out.println("box ye "+C.shipPos[1][1]*50);
         /*Ships Cr=new Ships(2,"Cruise");
         Ships S=new Ships(3,"Sub");
         Ships D=new Ships(4,"destroyer");*/
@@ -114,7 +114,7 @@ public class BattleShip extends JPanel{
         	System.out.println("Horizontal");
         }
         else if (B.shipPos[0][1]==B.shipPos[1][1]) {
-            g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.shipPos[1][0]*50, 50);
+            g.fillRect(B.shipPos[0][0]*50, B.shipPos[0][1]*50, B.size*50, 50);
             System.out.println("Vertical");
         }
         	
