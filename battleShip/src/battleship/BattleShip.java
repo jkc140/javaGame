@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.util.Scanner;
 import ship.*;
 import java.util.concurrent.TimeUnit;
+import battleshipattackclone.*;
 /**
  *
  * @author S331474817
@@ -104,7 +105,40 @@ public class BattleShip extends JPanel{
         screen.hide();
         delay(3);
     }
-    
+    public static void attack(){
+        int[][] shipPos=new int[5][5];
+        
+        int[][] shipPos1=new int[5][5];
+        BattleshipAttackClone att=new BattleshipAttackClone();
+        if(att.AttackChoice().equals("cross")){
+            att.getCoords();
+            crossAttack cAttack = new crossAttack();
+            cAttack.crossPos();
+            if(sI.turn==1){
+              cAttack.checkHit(shipPos);
+            }
+            else if(sI.turn==0){
+              cAttack.checkHit(shipPos1);
+            }
+            
+        }
+        if(att.AttackChoice().equals("square")){
+            att.getCoords();
+            squareAttack sAttack = new squareAttack();
+            sAttack.squarePos();
+            if(sI.turn==1){
+              sAttack.checkHit(shipPos);
+            }
+            else if(sI.turn==0){
+              sAttack.checkHit(shipPos1);
+            }
+        }
+        if(att.AttackChoice().equals("single")){
+            att.getCoords();
+            
+        }
+        
+    }
     public static void main(String[] args) {
     	boolean ender=false;
     	String useIn ;
@@ -125,6 +159,7 @@ public class BattleShip extends JPanel{
             System.out.println("screenSwitch: " +screenSwitch);
             screen.show();
             do {
+                attack();
             	System.out.println("enter fire to end turn");
                 useIn=sc.nextLine();
                 if(useIn.equalsIgnoreCase("fire")) {
