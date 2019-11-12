@@ -31,14 +31,17 @@ public class BattleshipAttackClone {
             if ("1".equals(AttackChoice)){
                 Choice="Cross";
                 valid=true;
+                break;
             }
             else if("2".equals(AttackChoice)){
                 Choice="2x2";
                 valid=true;
+                break;
             }
             else if ("3".equalsIgnoreCase(AttackChoice)){
                 Choice="Single";
-                valid=true;           }
+                valid=true;   
+                break;}
             else{
                 System.out.println("Invalid entry try again");
                 valid=false;
