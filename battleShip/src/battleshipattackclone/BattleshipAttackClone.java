@@ -65,9 +65,11 @@ public class BattleshipAttackClone {
                 tempCoords=sc.nextLine();
                  try{
                      coords[x]=Integer.parseInt(tempCoords);
+                     valid=true;
                 }
                 catch(Exception e){
                     System.out.println("Invalid entry try again");
+                    valid=false;
                 }
             }while(valid==false);
            valid=false;
