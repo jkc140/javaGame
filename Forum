@@ -6,7 +6,13 @@ Do we want single player or two person or an option for both
 Task to do
 - finish attacking (liam)
     - finish methods
-    - create a test variable for health
+    - create a test variable for ship pos
+    
 - implement attack (josh)
+- implement ship health
+- implement end game
+
 - create function to check for letter values and convert to int
 - work on issues for ships
+    - use temp function to test for ship pos
+    - function to check for sink ??
