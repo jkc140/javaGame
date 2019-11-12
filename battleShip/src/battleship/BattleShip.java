@@ -6,6 +6,7 @@
 package battleship;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -60,16 +61,30 @@ public class BattleShip extends JPanel{
             int val=0+(x*50);
             g.drawString(letter, 70+val, 30);
             g.drawString(String.valueOf(x),20,80+val);
-        }//
+        }
     }
-
-
+    
+    
+    public static boolean screenSwitch=false;
     public static int turn=1;
+    public void switchScreen(Graphics g,int turn) {
+    	Font font=new Font("Verdana", Font.BOLD,40);
+    	g.setFont(font);
+    	g.drawString("Player "+turn,300,300);
+    	screenSwitch=false;
+    }
+    
     public void paintComponent(Graphics g){
 
-        grid(g);
-        sI.turnDraw(g);
-
+    	if(screenSwitch==true) {
+    		switchScreen(g,turn);
+    	}
+    	else {
+        	Font font=new Font("Verdana", Font.PLAIN,12);
+        	g.setFont(font);
+    		grid(g);
+        	sI.turnDraw(g);
+    	}
 
     }
 
@@ -84,31 +99,35 @@ public class BattleShip extends JPanel{
 
         }
     }
+    
+    public static void hideScreen() {
+    	delay(3);
+        screen.hide();
+        delay(3);
+    }
+    
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-       /* shipInit();
-        System.out.println(pShow);
-        boardInit(0);
-        delay(5);
-        screen.hide();
 
-
-        shipInit();
-        boardP2();
-        delay(5);
-        screen2.hide();
-        screen.show();
-        screen.repaint();*/
-        //shipInit();
         sI.init(0);
         boardInit(0);
-        delay(3);
-        screen.hide();
-        delay(3);
+        hideScreen();
         sI.init(1);
         sI.turn=1;
         screen.show();
-        screen.repaint();
+        do {
+        	hideScreen();
+        	screenSwitch=true;
+            screen.show();
+            hideScreen();
+            System.out.println("screenSwitch: " +screenSwitch);
+            screen.show();
+            sI.turn=0;
+            
+
+   //         screen.repaint();
+        }while(1==3);
+        
 
 
         System.out.println("End");
