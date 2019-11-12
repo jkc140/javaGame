@@ -26,7 +26,7 @@ public class BattleShip extends JPanel{
         BattleShip ship = new BattleShip();
 
         screen.add(ship);
-        
+
         screen.setSize(1000,700);
         screen.setVisible(true);
         //screen.setResizable(false);
@@ -34,7 +34,7 @@ public class BattleShip extends JPanel{
 
 
     }
-     
+
 
     public void grid(Graphics g){
         int maxHeight=500;
@@ -62,15 +62,15 @@ public class BattleShip extends JPanel{
             g.drawString(String.valueOf(x),20,80+val);
         }//
     }
-   
+
 
     public static int turn=1;
     public void paintComponent(Graphics g){
-    	
+
         grid(g);
         sI.turnDraw(g);
-        
-       
+
+
     }
 
 
@@ -81,7 +81,7 @@ public class BattleShip extends JPanel{
     	try{
         	TimeUnit.SECONDS.sleep(time);
         }catch(Exception e) {
-        	
+
         }
     }
     public static void main(String[] args) {
@@ -91,8 +91,8 @@ public class BattleShip extends JPanel{
         boardInit(0);
         delay(5);
         screen.hide();
-        
-        
+
+
         shipInit();
         boardP2();
         delay(5);
@@ -109,10 +109,11 @@ public class BattleShip extends JPanel{
         sI.turn=1;
         screen.show();
         screen.repaint();
-        
-        
+
+
         System.out.println("End");
-    
+        //test
+
     }
 
 }
