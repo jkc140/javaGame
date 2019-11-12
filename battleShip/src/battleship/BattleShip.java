@@ -6,6 +6,7 @@
 package battleship;
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JFrame;
 import javax.swing.*;
@@ -20,13 +21,13 @@ public class BattleShip extends JPanel{
     public static JFrame screen ;
     public static shipInit sI=new shipInit();
 
-        public static void boardInit(int turn){
+        public static void boardInit(){
 
-        screen = new JFrame("Player "+turn);
+        screen = new JFrame("BattleShip");
         BattleShip ship = new BattleShip();
 
         screen.add(ship);
-        
+
         screen.setSize(1000,700);
         screen.setVisible(true);
         //screen.setResizable(false);
@@ -34,7 +35,7 @@ public class BattleShip extends JPanel{
 
 
     }
-     
+
 
     public void grid(Graphics g){
         int maxHeight=500;
@@ -62,15 +63,28 @@ public class BattleShip extends JPanel{
             g.drawString(String.valueOf(x),20,80+val);
         }
     }
-   
-
-    public static int turn=1;
+    
+    
+    public static boolean screenSwitch=false;
+    public void switchScreen(Graphics g,int turn) {
+    	Font font=new Font("Verdana", Font.BOLD,40);
+    	g.setFont(font);
+    	g.drawString("Player "+turn,300,300);
+    	screenSwitch=false;
+    }
+    
     public void paintComponent(Graphics g){
-    	
-        grid(g);
-        sI.turnDraw(g);
-        
-       
+
+    	if(screenSwitch==true) {
+    		switchScreen(g,sI.turn);
+    	}
+    	else {
+        	Font font=new Font("Verdana", Font.PLAIN,12);
+        	g.setFont(font);
+    		grid(g);
+        	sI.turnDraw(g);
+    	}
+
     }
 
 
@@ -81,38 +95,63 @@ public class BattleShip extends JPanel{
     	try{
         	TimeUnit.SECONDS.sleep(time);
         }catch(Exception e) {
-        	
+
         }
     }
+    
+    public static void hideScreen() {
+    	delay(3);
+        screen.hide();
+        delay(3);
+    }
+    
     public static void main(String[] args) {
+    	boolean ender=false;
+    	String useIn ;
         Scanner sc=new Scanner(System.in);
-       /* shipInit();
-        System.out.println(pShow);
-        boardInit(0);
-        delay(5);
-        screen.hide();
         
-        
-        shipInit();
-        boardP2();
-        delay(5);
-        screen2.hide();
-        screen.show();
-        screen.repaint();*/
-        //shipInit();
         sI.init(0);
-        boardInit(0);
-        delay(3);
-        screen.hide();
-        delay(3);
+        boardInit();
+        hideScreen();
         sI.init(1);
         sI.turn=1;
         screen.show();
-        screen.repaint();
+        do {
+        	System.out.println("player "+sI.turn);
+        	hideScreen();
+        	screenSwitch=true;
+            screen.show();
+            hideScreen();
+            System.out.println("screenSwitch: " +screenSwitch);
+            screen.show();
+            do {
+            	System.out.println("enter fire to end turn");
+                useIn=sc.nextLine();
+                if(useIn.equalsIgnoreCase("fire")) {
+                	ender=true;
+                }
+                else {
+                	ender=false;
+                }
+            }while(ender==false);
+            System.out.println("player after turn "+sI.turn);
+            if(sI.turn==0) {
+            	sI.turn=1;
+            }
+            else {
+            	sI.turn=0;
+            }
+            
+            
+
+   //         screen.repaint();
+        }while(true);
         
-        
-        System.out.println("End");
-    
+
+
+        //System.out.println("End");
+        //test
+
     }
 
 }

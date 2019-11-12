@@ -21,7 +21,7 @@ public class Ship {
         public  String shipName ;
         public  int shipLength;
         public   int[][] shipPos = new int[2][2];
-    public int [] SmallestPos = new int [2]
+        public int [] SmallestPos = new int [2];
 
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
