@@ -20,24 +20,33 @@ public class BattleshipAttackClone {
      */
     public String AttackChoice() {
         String Choice="";
-         Scanner input = new Scanner(System.in);  
+        boolean valid=false;
+        Scanner input = new Scanner(System.in);  
         System.out.println("Which attack would you like to choose?");
         String AttackChoice;
         String Instruction = "Cross Attack(1)"+"\n"+"2x2(2)"+"\n"+"Single(3)";
         System.out.println(Instruction);
         AttackChoice = input.nextLine();
-        if ("1".equals(AttackChoice)){
-            Choice="Cross";
-            //else if("2".equals(AttackChoice)){
-              //      Choice="2x2";
-              //  }
-                //else{
-                   // Choice="Single";
-                   // }
-          
-        }
-        return null;
-    }
+        do{
+            if ("1".equals(AttackChoice)){
+                Choice="Cross";
+                valid=true;
+            }
+            else if("2".equals(AttackChoice)){
+                Choice="2x2";
+                valid=true;
+            }
+            else if ("3".equalsIgnoreCase(AttackChoice)){
+                Choice="Single";
+                valid=true;           }
+            else{
+                System.out.println("Invalid entry try again");
+                valid=false;
+            }
+        }while(valid==false);
+        return Choice;
+    }    
+    
     public void getCoords(){
         Scanner sc=new Scanner(System.in);
         boolean valid=false;
@@ -62,41 +71,26 @@ public class BattleshipAttackClone {
         }
                
     }
-    public void crossPos(){
-        int[][] crossCoords=new int[5][2];
-        crossCoords[0][0]=coords[0];
-        crossCoords[0][1]=coords[1];
-        
-        //top left
-        crossCoords[1][0]=coords[0]-1;
-        crossCoords[1][1]=coords[0]-1;
-        //bottom left
-        crossCoords[2][0]=coords[0]-1;
-        crossCoords[2][1]=coords[0]+1;
-        //top right
-        crossCoords[3][0]=coords[0]+1;
-        crossCoords[3][1]=coords[0]-1;
-        //bottom right
-        crossCoords[4][0]=coords[0]+1;
-        crossCoords[4][1]=coords[0]+1;
-    }
-    public void squarePos(){
-        int[][]squareCoords=new int[4][2];
-        
-        //left
-        squareCoords[0][0]=coords[0];
-        squareCoords[0][1]=coords[1];
-        //right
-        squareCoords[1][0]=coords[0]+1;
-        squareCoords[1][1]=coords[0];
-        //bottom left
-        squareCoords[2][0]=coords[0];
-        squareCoords[2][1]=coords[0]+1;
-        //bottom right
-        squareCoords[3][0]=coords[0]+1;
-        squareCoords[3][1]=coords[0]+1;
-    }
+
+   
+
     
+    public void checkHit(int[][] pos, int[][]shipPos){
+        for(int x=0;x<5;x++){
+            for(int y=0;y<5;y++){
+                for(int z=0;z<pos.length;z++){
+                    for(int a=0;a<2;a++){
+                        if(shipPos[x][y]==pos[z][a]){
+                            System.out.println("Hit");
+                        }
+                        else{
+                            System.out.println("Miss");
+                        }
+                    }
+                }  
+            }
+        }
+    }
     
     private void GettingCoordinates2x2(){
         while (true){
