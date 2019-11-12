@@ -107,8 +107,10 @@ public class BattleShip extends JPanel{
     }
     
     public static void main(String[] args) {
+    	boolean ender=false;
+    	String useIn ;
         Scanner sc=new Scanner(System.in);
-
+        
         sI.init(0);
         boardInit(0);
         hideScreen();
@@ -116,6 +118,7 @@ public class BattleShip extends JPanel{
         sI.turn=1;
         screen.show();
         do {
+        	//System.out.println("player "+sI.turn);
         	hideScreen();
         	screenSwitch=true;
             screen.show();
@@ -123,14 +126,31 @@ public class BattleShip extends JPanel{
             System.out.println("screenSwitch: " +screenSwitch);
             screen.show();
             sI.turn=0;
+            do {
+            	System.out.println("enter fire to end turn");
+                useIn=sc.nextLine();
+                if(useIn.equalsIgnoreCase("fire")) {
+                	ender=true;
+                }
+                else {
+                	ender=false;
+                }
+            }while(ender==false);
+            if(sI.turn==0) {
+            	sI.turn=1;
+            }
+            else {
+            	turn=0;
+            }
+            
             
 
    //         screen.repaint();
-        }while(1==3);
+        }while(true);
         
 
 
-        System.out.println("End");
+        //System.out.println("End");
         //test
 
     }
