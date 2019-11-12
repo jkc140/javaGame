@@ -112,7 +112,7 @@ public class BattleShip extends JPanel{
         BattleshipAttackClone att=new BattleshipAttackClone();
         String choice=att.AttackChoice();
                 
-        if(choice.equals("cross")){
+        if(choice.equals("Cross")){
             System.out.println("cross");
             att.getCoords();
             crossAttack cAttack = new crossAttack();
@@ -125,7 +125,7 @@ public class BattleShip extends JPanel{
             }
             
         }
-        else if(choice.equals("square")){
+        else if(choice.equals("2x2")){
             att.getCoords();
             System.out.println("square");
             squareAttack sAttack = new squareAttack();
@@ -137,7 +137,7 @@ public class BattleShip extends JPanel{
               sAttack.checkHit(shipPos1);
             }
         }
-        else if(choice.equals("single")){
+        else if(choice.equals("Single")){
             att.getCoords();
             System.out.println("single");
             
