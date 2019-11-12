@@ -118,14 +118,13 @@ public class BattleShip extends JPanel{
         sI.turn=1;
         screen.show();
         do {
-        	//System.out.println("player "+sI.turn);
+        	System.out.println("player "+sI.turn);
         	hideScreen();
         	screenSwitch=true;
             screen.show();
             hideScreen();
             System.out.println("screenSwitch: " +screenSwitch);
             screen.show();
-            sI.turn=0;
             do {
             	System.out.println("enter fire to end turn");
                 useIn=sc.nextLine();
@@ -136,11 +135,12 @@ public class BattleShip extends JPanel{
                 	ender=false;
                 }
             }while(ender==false);
+            System.out.println("player after turn "+sI.turn);
             if(sI.turn==0) {
             	sI.turn=1;
             }
             else {
-            	turn=0;
+            	sI.turn=0;
             }
             
             
