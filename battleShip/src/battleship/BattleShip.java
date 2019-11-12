@@ -21,9 +21,9 @@ public class BattleShip extends JPanel{
     public static JFrame screen ;
     public static shipInit sI=new shipInit();
 
-        public static void boardInit(int turn){
+        public static void boardInit(){
 
-        screen = new JFrame("Player "+turn);
+        screen = new JFrame("BattleShip");
         BattleShip ship = new BattleShip();
 
         screen.add(ship);
@@ -66,7 +66,6 @@ public class BattleShip extends JPanel{
     
     
     public static boolean screenSwitch=false;
-    public static int turn=1;
     public void switchScreen(Graphics g,int turn) {
     	Font font=new Font("Verdana", Font.BOLD,40);
     	g.setFont(font);
@@ -77,7 +76,7 @@ public class BattleShip extends JPanel{
     public void paintComponent(Graphics g){
 
     	if(screenSwitch==true) {
-    		switchScreen(g,turn);
+    		switchScreen(g,sI.turn);
     	}
     	else {
         	Font font=new Font("Verdana", Font.PLAIN,12);
