@@ -111,7 +111,7 @@ public class BattleShip extends JPanel{
         Scanner sc=new Scanner(System.in);
         
         sI.init(0);
-        boardInit(0);
+        boardInit();
         hideScreen();
         sI.init(1);
         sI.turn=1;
