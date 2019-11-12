@@ -106,8 +106,7 @@ public class BattleShip extends JPanel{
         delay(3);
     }
     public static void attack(){
-        int[][] shipPos=new int[5][5];
-        
+        int[][]/*[]*/ shipPos=new int[5][5]/*[2]*/;
         int[][] shipPos1=new int[5][5];
         BattleshipAttackClone att=new BattleshipAttackClone();
         String choice=att.AttackChoice();
