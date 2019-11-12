@@ -11,7 +11,7 @@ package battleshipattackclone;
  */
 public class squareAttack extends BattleshipAttackClone{
         public int[][]squareCoords=new int[4][2];
-        public void squarePos(int[] coords){       
+        public void squarePos(){       
         //left
         squareCoords[0][0]=coords[0];
         squareCoords[0][1]=coords[1];
