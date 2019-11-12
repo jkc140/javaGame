@@ -60,7 +60,7 @@ public class BattleshipAttackClone {
             System.out.println("Enter a y-coordinate");
             
         }
-        catch(inputmismatchexception){
+        catch(Exception e){
         }
     }
     public static void main(String[] args) {
