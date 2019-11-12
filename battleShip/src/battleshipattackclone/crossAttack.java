@@ -11,7 +11,7 @@ package battleshipattackclone;
  */
 public class crossAttack extends BattleshipAttackClone{
     int[][] crossCoords=new int[5][2];
-     public void crossPos(int[] coords){
+     public void crossPos(){
         crossCoords[0][0]=coords[0];
         crossCoords[0][1]=coords[1];
         
