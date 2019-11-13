@@ -30,7 +30,7 @@ public class hitMarker extends JPanel{
 		}
 	}
 	public void drawMarker(Graphics g) {
-		for(int x=0;x<numAttackPos;x++) {
+		for(int x=0;x<totalAttack;x++) {
 			if(hit[x].equalsIgnoreCase("hit")){
 				g.setColor(Color.red);;
 				
