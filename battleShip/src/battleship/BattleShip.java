@@ -127,10 +127,10 @@ public class BattleShip extends JPanel{
 
             cAttack.crossPos();
             if(sI.turn==1){
-              cAttack.checkHit(sI.turn,sI.pos);
+              cAttack.checkHit(sI.turn,sI.pos,sI.test);
             }
             else if(sI.turn==0){
-              cAttack.checkHit(sI.turn,sI.pos);
+              cAttack.checkHit(sI.turn,sI.pos,sI.test);
               
             }
             hMark.getInfo(5, cAttack.hitOrMiss, cAttack.crossCoords);
@@ -143,10 +143,10 @@ public class BattleShip extends JPanel{
             sAttack.getCoords();
             sAttack.squarePos();
             if(sI.turn==1){
-              sAttack.checkHit(sI.turn,sI.pos);
+              sAttack.checkHit(sI.turn,sI.pos,sI.test);
             }
             else if(sI.turn==0){
-              sAttack.checkHit(sI.turn,sI.pos);
+              sAttack.checkHit(sI.turn,sI.pos,sI.test);
             }
             hMark.getInfo(4, sAttack.hitOrMiss, sAttack.squareCoords);
         }
@@ -156,12 +156,12 @@ public class BattleShip extends JPanel{
             singleAttack.getCoords();
             singleAttack.singlePos();
             if(sI.turn==1){
-                singleAttack.checkHit(sI.turn,sI.pos);
+                singleAttack.checkHit(sI.turn,sI.pos,sI.test);
               }
               else if(sI.turn==0){
-            	  singleAttack.checkHit(sI.turn,sI.pos);
+            	  singleAttack.checkHit(sI.turn,sI.pos,sI.test);
               }
-              hMark.getInfo(1, singleAttack.hitOrMiss, singleAttack.singleCoords);
+            hMark.getInfo(1, singleAttack.hitOrMiss, singleAttack.singleCoords);
             
             
         }
