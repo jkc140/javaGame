@@ -22,6 +22,9 @@ public class Ship {
         public  int shipLength;
         public   int[][] shipPos = new int[2][2];
         public int [] SmallestPos = new int [2];
+        public static String[] LetterCoord = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t"};
+        public static String[] NumberCoord = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        public static boolean cycle = true;
 
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
@@ -44,6 +47,7 @@ public class Ship {
         int counter = 0;
         while (1 == 1 ){
             for(int x=0;x < 2;x++){
+                cycle = true;
                         for(int y=0;y < 2;y++){
                             String axis;
                             if (y == 1){
@@ -121,7 +125,17 @@ public class Ship {
         }
     }
 
+    public static String LetterToNumber(String pos){
+    for (int x = 0; x < 20; x ++ ){ 
+        if (pos.equalsIgnoreCase(LetterCoord[x])){
+            pos = NumberCoord[x];
 
+        }
+    } 
+    cycle = false;
+    return pos;
+    }
+    
 
 
     public static int check(String axis){
@@ -131,6 +145,9 @@ public class Ship {
                 try{
                     System.out.print("Enter the "+ axis +" value ");
                     String num=input.next();
+                    while (cycle == true){
+                      num = LetterToNumber(num);    
+                      }
                     pos = Integer.parseInt(num);
                         if (pos >= 1 && pos <=20){
                            break;
@@ -159,4 +176,5 @@ public class Ship {
     }
 
 
+    
 }
