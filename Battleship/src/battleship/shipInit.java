@@ -66,5 +66,92 @@ public class shipInit extends JPanel{
     	}
        
     }
+	public void posSave(int p) {
+		int[][][][] pos=new int[2][5][5][2];
+		for(int x=0;x<5;x++) {
+			if(test[p][x].shipPos[0][0]==test[p][x].shipPos[1][0]) {
+				//x pos are the same
+				for(int y=0;y<test[x][0].size;y++) {
+					pos[p][x][y][0]=test[p][x].shipPos[0][0];
+					pos[p][x][y][1]=test[p][x].shipPos[0][1]+y;
+				}
+				for(int e=5;e>test[p][x].size;e--) {
+					pos[p][x][e][0]=-1;
+					pos[p][x][e][1]=-1;
+				}
+			}
+			else if(test[p][x].shipPos[0][1]==test[p][x].shipPos[1][1]) {
+				//y pos are the same
+					for(int y=0;y<test[0][x].size;y++) {
+						pos[p][x][y][0]=test[p][x].shipPos[0][0]+y;
+						pos[p][x][y][1]=test[p][x].shipPos[0][1];
+					}
+					for(int e=5;e>test[p][x].size;e--) {
+						pos[p][x][e][0]=-1;
+						pos[p][x][e][1]=-1;
+					}
+			}
+		}
+		
+		
+	}
    
 }
+
+
+
+/*//square 1
+pos[0][0][0]=test[0][0].shipPos[0][0];
+pos[0][0][1]=test[0][0].shipPos[0][1];
+//square 2
+pos[0][1][0]=test[0][0].shipPos[0][0];
+pos[0][1][1]=test[0][0].shipPos[0][1]+1;
+//square 3
+pos[0][2][0]=test[0][0].shipPos[0][0];
+pos[0][2][1]=test[0][0].shipPos[0][1]+2;
+//square 4
+pos[0][2][0]=test[0][0].shipPos[0][0];
+pos[0][2][1]=test[0][0].shipPos[0][1]+3;
+//square 5
+pos[0][2][0]=test[0][0].shipPos[0][0];
+pos[0][2][1]=test[0][0].shipPos[0][1]+4;*/
+
+/*if(test[1][0].shipPos[0][0]==test[1][0].shipPos[1][0]) {
+//x pos are the same
+
+//square 1
+pos[1][0][0]=test[0][0].shipPos[0][0];
+pos[0][0][1]=test[0][0].shipPos[0][1];
+//square 2
+pos[1][1][0]=test[0][0].shipPos[0][0];
+pos[1][1][1]=test[0][0].shipPos[0][1]+1;
+//square 3
+pos[1][2][0]=test[0][0].shipPos[0][0];
+pos[1][2][1]=test[0][0].shipPos[0][1]+2;
+//square 4
+pos[1][2][0]=test[0][0].shipPos[0][0];
+pos[1][2][1]=test[0][0].shipPos[0][1]+3;
+//square 5
+pos[1][2][0]=-1;
+pos[1][2][1]=-1;
+
+}
+else if(test[1][0].shipPos[0][1]==test[1][0].shipPos[1][1]) {
+//y pos are the same
+
+//square 1
+pos[1][0][0]=test[0][0].shipPos[0][0];
+pos[1][0][1]=test[0][0].shipPos[0][1];
+//square 2
+pos[1][1][0]=test[0][0].shipPos[0][0]+1;
+pos[1][1][1]=test[0][0].shipPos[0][1];
+//square 3
+pos[1][2][0]=test[0][0].shipPos[0][0]+2;
+pos[1][2][1]=test[0][0].shipPos[0][1];
+//square 4
+pos[1][2][0]=-1;
+pos[1][2][1]=-1;
+//square 5
+pos[1][2][0]=-1;
+pos[1][2][1]=-1;
+}*/
