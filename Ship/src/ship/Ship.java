@@ -12,6 +12,7 @@ public class Ship {
     /**
      * @param args the command line arguments
      */
+    //declaring variables
         private String name;
         public int size;
         private int health;
@@ -33,6 +34,7 @@ public class Ship {
         System.out.println(Arrays.deepToString(board));
     }
 
+    //Constructor
     public Ship(int length, String name){
         this.name = name;
         this.size = length;
@@ -42,6 +44,7 @@ public class Ship {
     }
 
 
+    //Starting method to get position
     public  int[][] returnposition(String name, int length){
         System.out.println("Enter a position for the: "+name);
         int counter = 0;
@@ -85,6 +88,7 @@ public class Ship {
        //test
     }
 
+    //Checks if the coordinates picked are the correct length away or not
     public boolean lenCheck(int len, int x1, int y1, int x2, int y2){
     int y = y2 - y1;
     int x = x2 - x1;
@@ -102,6 +106,7 @@ public class Ship {
 
     }
 
+    //Checks if the position picked overlaps with any other ships that have already been placed
     public boolean overlapCheck(int x1, int y1, int x2, int y2){
         int boardOverlapped = 0;
         for (int x = x1 - 1; x < x2; x ++ ){
@@ -125,6 +130,7 @@ public class Ship {
         }
     }
 
+    //if the x value entered is a letter converts it to the same integer value
     public static String LetterToNumber(String pos){
     for (int x = 0; x < 20; x ++ ){ 
         if (pos.equalsIgnoreCase(LetterCoord[x])){
@@ -138,6 +144,7 @@ public class Ship {
     
 
 
+    //Getting the x and y coordinates from the user
     public static int check(String axis){
         Scanner input = new Scanner(System.in);
         int pos;
@@ -164,6 +171,7 @@ public class Ship {
     }
 
 
+    //Sets the board to empty
     public static String[][] returnBoard( )  {
 
         String[][] board = new String[20][20];
