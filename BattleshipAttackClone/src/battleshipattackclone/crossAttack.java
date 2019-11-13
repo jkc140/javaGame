@@ -10,27 +10,32 @@ package battleshipattackclone;
  * @author S331474817
  */
 public class crossAttack extends BattleshipAttackClone{
-    int[][] crossCoords=new int[5][2];
+    public int[][] crossCoords=new int[5][2];
+    int[][] hitCoords=new int[5][2];
+    public String[] hitOrMiss=new String[5];
      public void crossPos(){
         crossCoords[0][0]=coords[0];
         crossCoords[0][1]=coords[1];
         
         //top left
         crossCoords[1][0]=coords[0]-1;
-        crossCoords[1][1]=coords[0]-1;
+        crossCoords[1][1]=coords[1]-1;
         //bottom left
         crossCoords[2][0]=coords[0]-1;
-        crossCoords[2][1]=coords[0]+1;
+        crossCoords[2][1]=coords[1]+1;
         //top right
         crossCoords[3][0]=coords[0]+1;
-        crossCoords[3][1]=coords[0]-1;
+        crossCoords[3][1]=coords[1]-1;
         //bottom right
         crossCoords[4][0]=coords[0]+1;
-        crossCoords[4][1]=coords[0]+1;
+        crossCoords[4][1]=coords[1]+1;
+        System.out.println(coords[0]+1);
+        System.out.println("Coord x"+coords[0]);
+        System.out.println("Coord y"+coords[1]);
     }
      public void checkHit(int turn, int[][][][]shipPos){
     	 int pCheck;
-    	 int[][] hitCoords=new int[5][2];
+    	 
     	 if(turn==0) {
     		 pCheck=1;
     	 }
@@ -38,21 +43,26 @@ public class crossAttack extends BattleshipAttackClone{
     		 pCheck=0;
     	 }
     	
-            for(int y=0;y<5;y++){
-                for(int z=0;z<5;z++){
-                    
-                        if((shipPos[pCheck][y][z][0]==crossCoords[z][0])&&(shipPos[pCheck][y][z][1]==crossCoords[z][1])){
-                            System.out.println("Hit");
-                            hitCoords[y][0]=crossCoords[z][0];
-                            hitCoords[y][1]=crossCoords[z][1];
-                            
+           // for(int y=0;y<5;y++){ //boat
+                //for(int z=0;z<5;z++){ //spaces on boat
+                    for(int x=0;x<5;x++) { //number of attack positions
+                        if((shipPos[pCheck][0][x][0]==crossCoords[x][0])&&(shipPos[pCheck][0][x][1]==crossCoords[x][1])){
+                            System.out.println("x:"+crossCoords[x][0] + " y:"+crossCoords[x][1]+ " Hit");
+                        	//System.out.println("Hit");
+                            hitCoords[0][0]=crossCoords[x][0];
+                            hitCoords[0][1]=crossCoords[x][1];
+                            hitOrMiss[x]="hit";
+                           // break; //remove ??
                         }
                         else{
+                            System.out.println("x:"+crossCoords[x][0] + " y:"+crossCoords[x][1]+ " Miss");
                             System.out.println("Miss");
+                            hitOrMiss[x]="miss";
                         
+                        }
                     }
-                }  
-            }
+                //}  
+            //}
         
     }
 }
