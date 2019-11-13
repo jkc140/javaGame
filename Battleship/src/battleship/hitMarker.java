@@ -7,7 +7,7 @@ import javax.swing.*;
 
 
 public class hitMarker extends JPanel{
-	String[] hit;
+	String[] hit = new [81];
 	int numAttackPos;
 	int[][] attackCoords;
 	
