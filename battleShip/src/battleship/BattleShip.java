@@ -117,10 +117,10 @@ public class BattleShip extends JPanel{
             crossAttack cAttack = new crossAttack();
             cAttack.crossPos();
             if(sI.turn==1){
-              cAttack.checkHit(shipPos);
+              cAttack.checkHit(sI.turn,sI.pos);
             }
             else if(sI.turn==0){
-              cAttack.checkHit(shipPos1);
+              cAttack.checkHit(sI.turn,sI.pos);
             }
             
         }
@@ -162,9 +162,9 @@ public class BattleShip extends JPanel{
             hideScreen();
             System.out.println("screenSwitch: " +screenSwitch);
             screen.show();
-            do {
+            //do {
                 attack();
-            	System.out.println("enter fire to end turn");
+            /*	System.out.println("enter fire to end turn");
                 useIn=sc.nextLine();
                 if(useIn.equalsIgnoreCase("fire")) {
                 	ender=true;
@@ -172,7 +172,7 @@ public class BattleShip extends JPanel{
                 else {
                 	ender=false;
                 }
-            }while(ender==false);
+            }while(ender==false);*/
             System.out.println("player after turn "+sI.turn);
             if(sI.turn==0) {
             	sI.turn=1;
