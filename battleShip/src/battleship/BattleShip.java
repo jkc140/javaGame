@@ -21,6 +21,8 @@ import battleshipattackclone.*;
 public class BattleShip extends JPanel{
     public static JFrame screen ;
     public static shipInit sI=new shipInit();
+    public static hitMarker hMark=new hitMarker();
+    
 
         public static void boardInit(){
 
@@ -67,6 +69,7 @@ public class BattleShip extends JPanel{
     
     
     public static boolean screenSwitch=false;
+    public static boolean attacking=false;
     public void switchScreen(Graphics g,int turn) {
     	Font font=new Font("Verdana", Font.BOLD,40);
     	g.setFont(font);
@@ -84,6 +87,12 @@ public class BattleShip extends JPanel{
         	g.setFont(font);
     		grid(g);
         	sI.turnDraw(g);
+        	if(attacking==true) {
+        		System.out.println("Setting markers");
+        		hMark.drawMarker(g);
+        	}
+        	
+        	
     	}
 
     }
@@ -113,21 +122,25 @@ public class BattleShip extends JPanel{
                 
         if(choice.equals("Cross")){
             System.out.println("cross");
-            att.getCoords();
             crossAttack cAttack = new crossAttack();
+            cAttack.getCoords();
+
             cAttack.crossPos();
             if(sI.turn==1){
               cAttack.checkHit(sI.turn,sI.pos);
             }
             else if(sI.turn==0){
               cAttack.checkHit(sI.turn,sI.pos);
+              
             }
+            hMark.getInfo(5, cAttack.hitOrMiss, cAttack.crossCoords);
+            
             
         }
         else if(choice.equals("2x2")){
-            att.getCoords();
             System.out.println("square");
             squareAttack sAttack = new squareAttack();
+            sAttack.getCoords();
             sAttack.squarePos();
             if(sI.turn==1){
               sAttack.checkHit(shipPos);
@@ -137,10 +150,11 @@ public class BattleShip extends JPanel{
             }
         }
         else if(choice.equals("Single")){
-            att.getCoords();
+            //att.getCoords();
             System.out.println("single");
             
         }
+        attacking=true;
         
     }
     public static void main(String[] args) {
@@ -164,6 +178,10 @@ public class BattleShip extends JPanel{
             screen.show();
             //do {
                 attack();
+                System.out.println("Attacking: "+attacking);
+                screen.repaint();
+                delay(300);
+                attacking=false;
             /*	System.out.println("enter fire to end turn");
                 useIn=sc.nextLine();
                 if(useIn.equalsIgnoreCase("fire")) {
