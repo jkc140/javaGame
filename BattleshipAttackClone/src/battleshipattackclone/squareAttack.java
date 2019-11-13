@@ -41,6 +41,9 @@ public class squareAttack extends BattleshipAttackClone{
     	for(int x=0;x<5;x++){
             for(int y=0;y<5;y++){
                 for(int z=0;z<4;z++){
+                		if(hitOrMiss[x]=="hit") {
+                			break;
+                		}
                     	if((shipPos[pCheck][0][y][0]==squareCoords[x][0])&&(shipPos[pCheck][y][x][1]==squareCoords[x][1])){
                             System.out.println("Hit");
                             hitOrMiss[x]="hit";
