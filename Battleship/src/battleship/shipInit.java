@@ -10,12 +10,26 @@ public class shipInit extends JPanel{
 		public static Ship[][] test=new Ship[2][5];
 		public static int turn=0;
 		public static int tester=1;
+		int[][][][] pos=new int[2][5][5][2];
 		public void init(int x) {
 				test[x][0]=new Ship(5,"Carrier");
-				/*test[x][1]=new Ship(4,"Battleship");
+				posSave(x,0);
+				for(int z=0;z<5;z++) {
+					for(int a=0;a<2;a++) {
+						System.out.println(pos[x][0][z][a]);
+					}
+					
+				}
+				/*
+				test[x][1]=new Ship(4,"Battleship");
+				posSave(x,1);
 				test[x][2]=new Ship(3,"Cruise");
+				posSave(x,2);
 				test[x][3]=new Ship(3,"Submarine");
-				test[x][4]=new Ship(2,"Destroyer");*/
+				posSave(x,3);
+				test[x][4]=new Ship(2,"Destroyer");
+				posSave(x,4);
+				*/
 			
 		}
 		
@@ -66,9 +80,8 @@ public class shipInit extends JPanel{
     	}
        
     }
-	public void posSave(int p) {
-		int[][][][] pos=new int[2][5][5][2];
-		for(int x=0;x<5;x++) {
+	public void posSave(int p, int x) {
+		
 			if(test[p][x].shipPos[0][0]==test[p][x].shipPos[1][0]) {
 				//x pos are the same
 				for(int y=0;y<test[x][0].size;y++) {
@@ -82,17 +95,15 @@ public class shipInit extends JPanel{
 			}
 			else if(test[p][x].shipPos[0][1]==test[p][x].shipPos[1][1]) {
 				//y pos are the same
-					for(int y=0;y<test[0][x].size;y++) {
-						pos[p][x][y][0]=test[p][x].shipPos[0][0]+y;
-						pos[p][x][y][1]=test[p][x].shipPos[0][1];
-					}
-					for(int e=5;e>test[p][x].size;e--) {
-						pos[p][x][e][0]=-1;
-						pos[p][x][e][1]=-1;
-					}
+				for(int y=0;y<test[0][x].size;y++) {
+					pos[p][x][y][0]=test[p][x].shipPos[0][0]+y;
+					pos[p][x][y][1]=test[p][x].shipPos[0][1];
+				}
+				for(int e=5;e>test[p][x].size;e--) {
+					pos[p][x][e][0]=-1;
+					pos[p][x][e][1]=-1;
+				}
 			}
-		}
-		
 		
 	}
    
