@@ -9,9 +9,11 @@ import javax.swing.*;
 public class hitMarker extends JPanel{
 	String[] hit = new [81];
 	int numAttackPos;
-	int[][] attackCoords;
+	int[][] attackCoords = [81][2];
+	int totalAttack = 0;
 	
 	public void getInfo(int attackSize, String[] HOM, int[][]coords) {
+		totalAttack += attackSize;
 		int tempSizeHit=HOM.length;
 		int tempSizeCoords=coords.length;
 		numAttackPos=attackSize;
