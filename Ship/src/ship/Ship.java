@@ -23,8 +23,8 @@ public class Ship {
         public  int shipLength;
         public   int[][] shipPos = new int[2][2];
         public int [] SmallestPos = new int [2];
-        public static String[] LetterCoord = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t"};
-        public static String[] NumberCoord = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
+        public static String[] LetterCoord = {"a","b","c","d","e","f","g","h","i"};
+        public static String[] NumberCoord = {"1","2","3","4","5","6","7","8","9"};
         public static boolean cycle = true;
 
     public static void main(String[] args) {
@@ -132,7 +132,7 @@ public class Ship {
 
     //if the x value entered is a letter converts it to the same integer value
     public static String LetterToNumber(String pos){
-    for (int x = 0; x < 20; x ++ ){ 
+    for (int x = 0; x < 9; x ++ ){ 
         if (pos.equalsIgnoreCase(LetterCoord[x])){
             pos = NumberCoord[x];
 
@@ -156,7 +156,7 @@ public class Ship {
                       num = LetterToNumber(num);    
                       }
                     pos = Integer.parseInt(num);
-                        if (pos >= 1 && pos <=20){
+                        if (pos >= 1 && pos <=9){
                            break;
                         }
                         else{
@@ -174,9 +174,9 @@ public class Ship {
     //Sets the board to empty
     public static String[][] returnBoard( )  {
 
-        String[][] board = new String[20][20];
-            for(int x=0;x < 20;x++){
-                    for(int y=0;y < 20;y++){
+        String[][] board = new String[9][9];
+            for(int x=0;x < 9;x++){
+                    for(int y=0;y < 9;y++){
                         board[x][y] = ("E");
                     }
             }
