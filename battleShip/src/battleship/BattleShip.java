@@ -143,11 +143,12 @@ public class BattleShip extends JPanel{
             sAttack.getCoords();
             sAttack.squarePos();
             if(sI.turn==1){
-              sAttack.checkHit(shipPos);
+              sAttack.checkHit(sI.turn,sI.pos);
             }
             else if(sI.turn==0){
-              sAttack.checkHit(shipPos1);
+              sAttack.checkHit(sI.turn,sI.pos);
             }
+            hMark.getInfo(4, sAttack.hitOrMiss, sAttack.squareCoords);
         }
         else if(choice.equals("Single")){
             //att.getCoords();
@@ -177,6 +178,7 @@ public class BattleShip extends JPanel{
             System.out.println("screenSwitch: " +screenSwitch);
             screen.show();
             //do {
+            	//screen.repaint();
                 attack();
                 System.out.println("Attacking: "+attacking);
                 screen.repaint();
