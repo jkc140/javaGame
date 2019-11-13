@@ -92,7 +92,7 @@ public class Ship {
     public boolean lenCheck(int len, int x1, int y1, int x2, int y2){
     int y = y2 - y1;
     int x = x2 - x1;
-    System.out.printf("lenght: %d Coordinate 1: %d,%d Coordinate 2: %d,%d Y distance: %d X distance: %d \n", len, x1, y1 , x2, y2, y , x);
+    //System.out.printf("lenght: %d Coordinate 1: %d,%d Coordinate 2: %d,%d Y distance: %d X distance: %d \n", len, x1, y1 , x2, y2, y , x);
 
         if (y == len - 1 || x == len - 1){
             System.out.println("Length check passed");
@@ -121,7 +121,7 @@ public class Ship {
         }
 
         if (boardOverlapped == 0){
-        System.out.println("Overlap check passed");
+        //System.out.println("Overlap check passed");
     	return true;
         }
         else {
