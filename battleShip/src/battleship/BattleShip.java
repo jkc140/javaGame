@@ -151,8 +151,18 @@ public class BattleShip extends JPanel{
             hMark.getInfo(4, sAttack.hitOrMiss, sAttack.squareCoords);
         }
         else if(choice.equals("Single")){
-            //att.getCoords();
-            System.out.println("single");
+        	System.out.println("single");
+            singleAttack singleAttack=new singleAttack();
+            singleAttack.getCoords();
+            singleAttack.singlePos();
+            if(sI.turn==1){
+                singleAttack.checkHit(sI.turn,sI.pos);
+              }
+              else if(sI.turn==0){
+            	  singleAttack.checkHit(sI.turn,sI.pos);
+              }
+              hMark.getInfo(1, singleAttack.hitOrMiss, singleAttack.singleCoords);
+            
             
         }
         attacking=true;
