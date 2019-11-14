@@ -30,7 +30,7 @@ public class squareAttack extends BattleshipAttackClone{
 
     }
     public void checkHit( int turn, int[][][][]shipPos,Ship[][]shipList){
-    	
+    	System.out.println("Checking hit");
     	int pCheck;
    	 
    	 if(turn==0) {
@@ -43,8 +43,22 @@ public class squareAttack extends BattleshipAttackClone{
     	hitOrMiss[x]="";
    	 }
    	 for(int atNum=0;atNum<4;atNum++) {
+   		 System.out.println("Checking attact: " +atNum);
    		 for(int sNum=0;sNum<1;sNum++) {
-   			 for(int pNum=0;pNum<shipList[pCheck][sNum].shipLength;pNum++) {
+   			if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
+   				System.out.println("Already a hit");
+  				 break;
+  			 }
+  			 else {
+  				 
+  			 
+   	   		 System.out.println("Checking ship: " +sNum);
+   	   		 System.out.println("Ship Length: "+shipList[pCheck][sNum].size);
+   			 for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
+   		   		 System.out.println("Checking pos: " +pNum);
+
+   				 System.out.println(squareCoords[atNum][0] +" : "+shipPos[pCheck][sNum][pNum][0]);
+   				 System.out.println(squareCoords[atNum][1] +" : "+shipPos[pCheck][sNum][pNum][1]);
    				 if((squareCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&squareCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
    					 System.out.println("Hit");
    	                hitOrMiss[sNum]="hit";
@@ -63,9 +77,7 @@ public class squareAttack extends BattleshipAttackClone{
    	                hitOrMiss[sNum]="miss";
    				 }
    			 }
-   			 if(hitOrMiss[sNum].equalsIgnoreCase("hit")) {
-   				 break;
-   			 }
+  			 }
    		 }
    	 }
    	 
