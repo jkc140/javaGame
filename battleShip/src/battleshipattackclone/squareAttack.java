@@ -53,6 +53,7 @@ public class squareAttack extends BattleshipAttackClone{
                             
                             if(shipList[pCheck][0].health==0){
                                 System.out.println("Sunk");
+                                shipList[pCheck][0].sunk=true;
                             }
                         }
                         else{
