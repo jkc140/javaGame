@@ -84,7 +84,8 @@ public class shipInit extends JPanel{
 				for(int e=5;e>test[p][x].size;e--) {
 					pos[p][x][e][0]=-1;
 					pos[p][x][e][1]=-1;
-				}
+				//setting ships with less than 5 spots to have -1 in other slots up to it.
+                                }
 			}
 			else if(test[p][x].shipPos[0][1]==test[p][x].shipPos[1][1]) {
 				//y pos are the same
