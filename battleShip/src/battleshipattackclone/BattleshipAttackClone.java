@@ -26,8 +26,8 @@ public class BattleshipAttackClone {
         String AttackChoice;
         String Instruction = "Cross Attack(1)"+"\n"+"2x2(2)"+"\n"+"Single(3)";
         System.out.println(Instruction);
-        AttackChoice = input.nextLine();
         do{
+        	AttackChoice = input.nextLine();
             if ("1".equals(AttackChoice)){
                 Choice="Cross";
                 valid=true;
@@ -80,12 +80,12 @@ public class BattleshipAttackClone {
    
 
     
-    public void checkHit(int[][] pos, int[][]shipPos){
+    public void checkHit(int[][] Apos, int[][][][]shipPos){
         for(int x=0;x<5;x++){
             for(int y=0;y<5;y++){
-                for(int z=0;z<pos.length;z++){
+                for(int z=0;z<Apos.length;z++){
                     for(int a=0;a<2;a++){
-                        if(shipPos[x][y]==pos[z][a]){
+                        if(shipPos[x][y][0][0]==Apos[z][a]){
                             System.out.println("Hit");
                         }
                         else{
