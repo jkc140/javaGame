@@ -89,7 +89,7 @@ public class BattleShip extends JPanel{
         	sI.turnDraw(g);
         	if(attacking==true) {
         		System.out.println("Setting markers");
-        		hMark.drawMarker(g);
+        		hMark.drawMarker(g,sI.turn);
         	}
         	
         	
@@ -125,14 +125,8 @@ public class BattleShip extends JPanel{
             cAttack.getCoords();
 
             cAttack.crossPos();
-            if(sI.turn==1){
-              cAttack.checkHit(sI.turn,sI.pos,sI.test);
-            }
-            else if(sI.turn==0){
-              cAttack.checkHit(sI.turn,sI.pos,sI.test);
-              
-            }
-            hMark.getInfo(5, cAttack.hitOrMiss, cAttack.crossCoords);
+            cAttack.checkHit(sI.turn,sI.pos,sI.test);
+            hMark.getInfo(sI.turn,5, cAttack.hitOrMiss, cAttack.crossCoords);
             
             
         }
@@ -141,27 +135,17 @@ public class BattleShip extends JPanel{
             squareAttack sAttack = new squareAttack();
             sAttack.getCoords();
             sAttack.squarePos();
-           /* if(sI.turn==1){
-              sAttack.checkHit(sI.turn,sI.pos,sI.test);
-            }
-            else if(sI.turn==0){
-              sAttack.checkHit(sI.turn,sI.pos,sI.test);
-            }*/
+  
             sAttack.checkHit(sI.turn,sI.pos,sI.test);
-            hMark.getInfo(4, sAttack.hitOrMiss, sAttack.squareCoords);
+            hMark.getInfo(sI.turn,4, sAttack.hitOrMiss, sAttack.squareCoords);
         }
         else if(choice.equals("Single")){
         	System.out.println("single");
             singleAttack singleAttack=new singleAttack();
             singleAttack.getCoords();
             singleAttack.singlePos();
-            if(sI.turn==1){
-                singleAttack.checkHit(sI.turn,sI.pos,sI.test);
-              }
-              else if(sI.turn==0){
-            	  singleAttack.checkHit(sI.turn,sI.pos,sI.test);
-              }
-            hMark.getInfo(1, singleAttack.hitOrMiss, singleAttack.singleCoords);
+            singleAttack.checkHit(sI.turn,sI.pos,sI.test);
+            hMark.getInfo(sI.turn,1, singleAttack.hitOrMiss, singleAttack.singleCoords);
             
             
         }
