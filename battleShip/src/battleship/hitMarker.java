@@ -41,7 +41,8 @@ public class hitMarker extends JPanel{
 		//attackCoords=new int[tempSizeCoords][2];
 		for(int x=0;x<attackSize;x++) {
 			for(int y=0;y<2;y++) {
-				attackCoords[x+totalAttack][y]=coords[x][y];
+				
+				attackCoords[temp][y]=coords[x][y];
 			}
 		}
 	}
@@ -51,13 +52,13 @@ public class hitMarker extends JPanel{
 			System.out.println("drawing x val: " +x);
 			System.out.println("hit length " +hit.length);
 			System.out.println(hit[x]);
-			/*if(hit[x].equalsIgnoreCase("hit")){
+			if(hit[x].equalsIgnoreCase("hit")){
 				g.setColor(Color.red);;
 
 			}
 			else {
 				g.setColor(Color.white);
-			}*/
+			}
 			g.fillOval(attackCoords[x][0]*50, attackCoords[x][1]*50, 50, 50);
 		}
 	}
