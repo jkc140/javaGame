@@ -141,12 +141,13 @@ public class BattleShip extends JPanel{
             squareAttack sAttack = new squareAttack();
             sAttack.getCoords();
             sAttack.squarePos();
-            if(sI.turn==1){
+           /* if(sI.turn==1){
               sAttack.checkHit(sI.turn,sI.pos,sI.test);
             }
             else if(sI.turn==0){
               sAttack.checkHit(sI.turn,sI.pos,sI.test);
-            }
+            }*/
+            sAttack.checkHit(sI.turn,sI.pos,sI.test);
             hMark.getInfo(4, sAttack.hitOrMiss, sAttack.squareCoords);
         }
         else if(choice.equals("Single")){
