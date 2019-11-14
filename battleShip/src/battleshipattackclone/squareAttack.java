@@ -61,7 +61,7 @@ public class squareAttack extends BattleshipAttackClone{
    				 System.out.println(squareCoords[atNum][1] +" : "+shipPos[pCheck][sNum][pNum][1]);
    				 if((squareCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&squareCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
    					 System.out.println("Hit");
-   	                hitOrMiss[sNum]="hit";
+   	                hitOrMiss[atNum]="hit";
    	                System.out.println(shipList[pCheck][0].health);
    	                shipList[pCheck][0].health=shipList[pCheck][0].health-1;
    	                System.out.println(shipList[pCheck][0].health);
@@ -74,14 +74,14 @@ public class squareAttack extends BattleshipAttackClone{
    				 }
    				 else{
    	                System.out.println("Miss");
-   	                hitOrMiss[sNum]="miss";
+   	                hitOrMiss[atNum]="miss";
    				 }
    			 }
   			 }
    		 }
    	 }
    	 
-    }
+   }
 }
 /*
 for(int x=0;x<5;x++){
