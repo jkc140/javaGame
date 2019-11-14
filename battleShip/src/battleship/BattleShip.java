@@ -115,8 +115,7 @@ public class BattleShip extends JPanel{
         delay(3);
     }
     public static void attack(){
-        int[][]/*[]*/ shipPos=new int[5][5]/*[2]*/;
-        int[][] shipPos1=new int[5][5];
+
         BattleshipAttackClone att=new BattleshipAttackClone();
         String choice=att.AttackChoice();
                 
@@ -192,8 +191,34 @@ public class BattleShip extends JPanel{
                 attack();
                 System.out.println("Attacking: "+attacking);
                 screen.repaint();
-                delay(300);
+                delay(5);
                 attacking=false;
+                int sunkCount=0;
+                for(int x=0;x<1;x++) {
+                	int tempTurn;
+
+                	if(sI.turn==0) {
+                		tempTurn=1;
+                	}
+                	else {
+                		tempTurn=0;
+                	}
+                	if(sI.test[tempTurn][x].sunk==true) {
+                		sunkCount++;
+                		
+                		System.out.println("Sunk "+sunkCount);
+                	}
+                	else {
+                		sunkCount=0;
+                	}
+                	if(sunkCount==5) {
+                		ender=true;
+                		System.out.println("Game over");
+                	}
+                	else {
+                		ender=false;
+                	}
+                }
             /*	System.out.println("enter fire to end turn");
                 useIn=sc.nextLine();
                 if(useIn.equalsIgnoreCase("fire")) {
@@ -214,7 +239,7 @@ public class BattleShip extends JPanel{
             
 
    //         screen.repaint();
-        }while(true);
+        }while(ender=false);
         
 
 
