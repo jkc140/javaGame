@@ -10,7 +10,7 @@ public class hitMarker extends JPanel{
 	String[] hit = new String [81];
 	int[][] attackCoords = new int [81][2];
 	int totalAttack = 0;
-	
+
 	public void getInfo(int attackSize, String[] HOM, int[][]coords) {
 		int temp=0;
 		totalAttack += attackSize;
@@ -25,19 +25,19 @@ public class hitMarker extends JPanel{
 			}
 			else {
 				temp=x;
-			}
-			
+			}//test
+
 			System.out.println("tot attack val: "+ totalAttack);
 			System.out.println("tot attack +x val: "+ (totalAttack+x));
 			System.out.println("drawing x val: "+x);
 			System.out.println("temp: "+temp);
-			
+
 			System.out.println("HOM: "+HOM[x]);
 			hit[(temp)]=HOM[x];
 			System.out.println("hit xTot: "+hit[(temp)]);
 			System.out.println("hit x: "+hit[x]);
 		}
-		
+
 		//attackCoords=new int[tempSizeCoords][2];
 		for(int x=0;x<attackSize;x++) {
 			for(int y=0;y<2;y++) {
@@ -47,13 +47,13 @@ public class hitMarker extends JPanel{
 	}
 	public void drawMarker(Graphics g) {
 		System.out.println("tot attack val: "+ totalAttack);
-		for(int x=1;x<=totalAttack;x++) {
+		for(int x=0;x<totalAttack;x++) {
 			System.out.println("drawing x val: " +x);
 			System.out.println("hit length " +hit.length);
 			System.out.println(hit[x]);
 			/*if(hit[x].equalsIgnoreCase("hit")){
 				g.setColor(Color.red);;
-				
+
 			}
 			else {
 				g.setColor(Color.white);
