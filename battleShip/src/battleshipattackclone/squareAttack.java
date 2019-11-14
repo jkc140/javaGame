@@ -11,7 +11,8 @@ package battleshipattackclone;
  */
 public class squareAttack extends BattleshipAttackClone{
        public int[][]squareCoords=new int[5][2];
-        public String[] hitOrMiss=new String[5];
+        public String[] hitOrMiss=new String[4];
+        
         public void squarePos(){       
         //left
         squareCoords[0][0]=coords[0];
@@ -26,10 +27,10 @@ public class squareAttack extends BattleshipAttackClone{
         squareCoords[3][0]=coords[0]+1;
         squareCoords[3][1]=coords[0]+1;
         
-        squareCoords[4][0]=-2;
-        squareCoords[4][1]=-2;
+
     }
     public void checkHit( int turn, int[][][][]shipPos,Ship[][]shipList){
+    	
     	int pCheck;
    	 
    	 if(turn==0) {
@@ -38,9 +39,11 @@ public class squareAttack extends BattleshipAttackClone{
    	 else {
    		 pCheck=0;
    	 }
-    
+   	 for(int x=0;x<4;x++) {
+    	hitOrMiss[x]="";
+   	 }
    	 for(int atNum=0;atNum<4;atNum++) {
-   		 for(int sNum=0;sNum<5;sNum++) {
+   		 for(int sNum=0;sNum<1;sNum++) {
    			 for(int pNum=0;pNum<shipList[pCheck][sNum].shipLength;pNum++) {
    				 if((squareCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&squareCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
    					 System.out.println("Hit");
