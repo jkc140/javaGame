@@ -38,11 +38,17 @@ public class hitMarker extends JPanel{
 		}
 
 		//attackCoords=new int[tempSizeCoords][2];
+		temp=0;
 		for(int x=0;x<attackSize;x++) {
+			temp=x+totalAttack;
 			for(int y=0;y<2;y++) {
-				
+				System.out.println("coords: "+coords[x][y]);
 				attackCoords[temp][y]=coords[x][y];
+				System.out.println("coords: "+coords[x][y]);
+				System.out.println("attack Coords: "+attackCoords[temp][y]);
 			}
+			System.out.println("attack Coords: "+attackCoords[x][0]);
+			System.out.println("attack Coords: "+attackCoords[x][1]);
 		}
 		totalAttack += attackSize;
 
