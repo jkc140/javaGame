@@ -25,7 +25,7 @@ public class Ship {
         private String name;
         public int size;
         public int health;
-        private boolean sunk;
+        public boolean sunk;
         static int[][] shipPosition;
         static String[][] board = returnBoard();
         public  String shipName ;
