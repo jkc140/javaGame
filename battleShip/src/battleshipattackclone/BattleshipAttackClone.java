@@ -80,50 +80,7 @@ public class BattleshipAttackClone {
    
 
     
-    public void checkHit(int[][] Apos, int[][][][]shipPos){
-        for(int x=0;x<5;x++){
-            for(int y=0;y<5;y++){
-                for(int z=0;z<Apos.length;z++){
-                    for(int a=0;a<2;a++){
-                        if(shipPos[x][y][0][0]==Apos[z][a]){
-                            System.out.println("Hit");
-                        }
-                        else{
-                            System.out.println("Miss");
-                        }
-                    }
-                }  
-            }
-        }
-    }
-    
-    private void GettingCoordinates2x2(){
-        while (true){
-        String[] xCoordinates = {"a", "b", "c", "d","e","f","g","h","i"};
-        String xValue;
-        int x;
-        boolean letterWasFound = false;
-        xValue = JOptionPane.showInputDialog(null,
-                "Enter a coordinate ranging from a-i");
-        for(x = 0; x < xCoordinates.length; ++x)
-            if(xValue.equals(xCoordinates [x]))
-                letterWasFound = true;
-        if(letterWasFound == false){
-            
-        } else {
-            break;
-        }
+    public void checkHit(){
     }
         
-        try{
-            System.out.println("Enter a y-coordinate");
-            
-        }
-        catch(Exception e){
-        }
-    }
-    public static void main(String[] args) {
-    
-    }
-    
 }
