@@ -13,7 +13,6 @@ public class hitMarker extends JPanel{
 
 	public void getInfo(int attackSize, String[] HOM, int[][]coords) {
 		int temp=0;
-		totalAttack += attackSize;
 		System.out.println("tot attack val: "+ totalAttack);
 
 		//hit=new String[attackSize];
@@ -45,6 +44,8 @@ public class hitMarker extends JPanel{
 				attackCoords[temp][y]=coords[x][y];
 			}
 		}
+		totalAttack += attackSize;
+
 	}
 	public void drawMarker(Graphics g) {
 		System.out.println("tot attack val: "+ totalAttack);
