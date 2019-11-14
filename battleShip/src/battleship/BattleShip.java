@@ -239,7 +239,7 @@ public class BattleShip extends JPanel{
             
 
    //         screen.repaint();
-        }while(ender=false);
+        }while(ender==false);
         
 
 
