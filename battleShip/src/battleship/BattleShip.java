@@ -22,7 +22,8 @@ public class BattleShip extends JPanel{
     public static JFrame screen ;
     public static shipInit sI=new shipInit();
     public static hitMarker hMark=new hitMarker();
-    
+    public static boolean screenSwitch=false;
+    public static boolean attacking=false;
 
         public static void boardInit(){
 
@@ -33,7 +34,7 @@ public class BattleShip extends JPanel{
 
         screen.setSize(1000,700);
         screen.setVisible(true);
-        //screen.setResizable(false);
+        screen.setResizable(false);
         screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
@@ -68,8 +69,7 @@ public class BattleShip extends JPanel{
     }
     
     
-    public static boolean screenSwitch=false;
-    public static boolean attacking=false;
+
     public void switchScreen(Graphics g,int turn) {
     	Font font=new Font("Verdana", Font.BOLD,40);
     	g.setFont(font);
@@ -164,17 +164,12 @@ public class BattleShip extends JPanel{
         sI.turn=1;
         screen.show();
         do {
-        	System.out.println("player "+sI.turn);
         	hideScreen();
         	screenSwitch=true;
             screen.show();
             hideScreen();
-            System.out.println("screenSwitch: " +screenSwitch);
             screen.show();
-            //do {
-            	//screen.repaint();
                 attack();
-                System.out.println("Attacking: "+attacking);
                 screen.repaint();
                 delay(5);
                 attacking=false;
@@ -204,15 +199,7 @@ public class BattleShip extends JPanel{
                 		ender=false;
                 	}
                 }
-            /*	System.out.println("enter fire to end turn");
-                useIn=sc.nextLine();
-                if(useIn.equalsIgnoreCase("fire")) {
-                	ender=true;
-                }
-                else {
-                	ender=false;
-                }
-            }while(ender==false);*/
+
             System.out.println("player after turn "+sI.turn);
             if(sI.turn==0) {
             	sI.turn=1;
@@ -223,17 +210,13 @@ public class BattleShip extends JPanel{
             
             
 
-   //         screen.repaint();
         }while(ender==false);
         
 
 
-        //System.out.println("End");
-        //test
 
     }
 
 }
 
 
-//https://stackoverflow.com/questions/15544549/how-does-paintcomponent-work
