@@ -33,80 +33,36 @@ public class squareAttack extends BattleshipAttackClone{
     	System.out.println("Checking hit");
     	int pCheck;
    	 
-   	 if(turn==0) {
-   		 pCheck=1;
-   	 }
-   	 else {
-   		 pCheck=0;
-   	 }
-   	 for(int x=0;x<4;x++) {
-    	hitOrMiss[x]="";
-   	 }
-   	 for(int atNum=0;atNum<4;atNum++) {
-   		 System.out.println("Checking attact: " +atNum);
-   		 for(int sNum=0;sNum<1;sNum++) {
-   			if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
-   				System.out.println("Already a hit");
-  				 break;
-  			 }
-  			 else {
-  				 
-  			 
-   	   		 System.out.println("Checking ship: " +sNum);
-   	   		 System.out.println("Ship Length: "+shipList[pCheck][sNum].size);
-   			 for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
-   		   		 System.out.println("Checking pos: " +pNum);
-
-   				 System.out.println(squareCoords[atNum][0] +" : "+shipPos[pCheck][sNum][pNum][0]);
-   				 System.out.println(squareCoords[atNum][1] +" : "+shipPos[pCheck][sNum][pNum][1]);
-   				 if((squareCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&squareCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
-   					 System.out.println("Hit");
-   	                hitOrMiss[atNum]="hit";
-   	                System.out.println(shipList[pCheck][0].health);
-   	                shipList[pCheck][0].health=shipList[pCheck][0].health-1;
-   	                System.out.println(shipList[pCheck][0].health);
-   	                
-   	                if(shipList[pCheck][0].health==0){
-   	                    System.out.println("Sunk");
-   	                    shipList[pCheck][0].sunk=true;
-   	                }
-   	                break;
+   	if(turn==0) {
+            pCheck=1;
+   	}
+   	else {
+            pCheck=0;
+   	}
+   	for(int x=0;x<4;x++) {
+            hitOrMiss[x]="";
+   	}
+   	for(int atNum=0;atNum<4;atNum++) {
+            for(int sNum=0;sNum<1;sNum++) {
+   		if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
+                    break;
+  		}
+  		else {
+                    for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
+                        if((squareCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&squareCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
+                            hitOrMiss[atNum]="hit";
+                            shipList[pCheck][0].health=shipList[pCheck][0].health-1;
+   	                    if(shipList[pCheck][0].health==0){
+                                shipList[pCheck][0].sunk=true;
+                            }
+                            break;
    				 }
-   				 else{
-   	                System.out.println("Miss");
-   	                hitOrMiss[atNum]="miss";
-   				 }
-   			 }
-  			 }
-   		 }
-   	 }
-   	 
-   }
-}
-/*
-for(int x=0;x<5;x++){
-for(int y=0;y<5;y++){
-    for(int z=0;z<4;z++){
-    		if(hitOrMiss[x]=="hit") {
-    			break;
-    		}
-        	if((shipPos[pCheck][0][y][0]==squareCoords[x][0])&&(shipPos[pCheck][y][x][1]==squareCoords[x][1])){
-                System.out.println("Hit");
-                hitOrMiss[x]="hit";
-                System.out.println(shipList[pCheck][0].health);
-                shipList[pCheck][0].health=shipList[pCheck][0].health-1;
-                System.out.println(shipList[pCheck][0].health);
-                
-                if(shipList[pCheck][0].health==0){
-                    System.out.println("Sunk");
-                    shipList[pCheck][0].sunk=true;
-                }
+   			else{
+                            hitOrMiss[atNum]="miss";
+   			}
+                    }
+  		}
             }
-            else{
-                System.out.println("Miss");
-                hitOrMiss[x]="miss";
-            }
-        
-    }  
+   	}
+    }
 }
-}*/
