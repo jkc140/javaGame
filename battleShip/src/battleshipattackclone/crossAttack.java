@@ -54,10 +54,10 @@ public class crossAttack extends BattleshipAttackClone{
                     for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
        			if((crossCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&crossCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
                             hitOrMiss[atNum]="hit";
-                            shipList[pCheck][0].health=shipList[pCheck][0].health-1;
+                            shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;
        	                
-                            if(shipList[pCheck][0].health==0){
-                                shipList[pCheck][0].sunk=true;
+                            if(shipList[pCheck][sNum].health==0){
+                                shipList[pCheck][sNum].sunk=true;
                             }
                             break;
        			}

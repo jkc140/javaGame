@@ -35,9 +35,9 @@ public class singleAttack extends BattleshipAttackClone{
   		for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
                     if((singleCoords[0][0]==shipPos[pCheck][sNum][pNum][0])&&singleCoords[0][1]==shipPos[pCheck][sNum][pNum][1]) {
    	                hitOrMiss[0]="hit";
-   	                shipList[pCheck][0].health=shipList[pCheck][0].health-1;   	            
-   	                if(shipList[pCheck][0].health==0){
-   	                    shipList[pCheck][0].sunk=true;
+   	                shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;   	            
+   	                if(shipList[pCheck][sNum].health==0){
+   	                    shipList[pCheck][sNum].sunk=true;
    	                }
    	                break;
                     }
