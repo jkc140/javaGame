@@ -15,7 +15,7 @@ public class hitMarker extends JPanel{ //create a class called hitmarker and mak
     public void getInfo(int pTurn,int attackSize, String[] HOM, int[][]coords) { //create function called getInfo that will get the information on the players attack (ex if it was a hit or not and the coordinate for the attacks)
       //parameters pTurn <-- player turn, attackSize <-- number of attack positions, HOM <-- hit or miss, coords <-- position of attack
         int temp=0; //create variable called temp to hold the temporary number of attack position
-        for(int x=0;x<attackSize;x++) { // loops for the number of attack position the lattest attack used
+        for(int x=0;x<attackSize;x++) { // loops for the number of attack position the latest attack used
             if (hit[pTurn][0]!=null){ //if this is no the first attacks
                 temp=x+totalAttack[pTurn]; //set temp to be the total number of attacks plus the current attack number of the latest attack
             }

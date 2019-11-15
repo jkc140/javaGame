@@ -6,96 +6,89 @@ import javax.swing.*;
 
 import ship.Ship;
 
-public class shipInit extends JPanel{
-		public static Ship[][] test=new Ship[2][5];
-		public static int turn=0;
-		public static int tester=5;
-		int[][][][] pos=new int[2][5][5][2];
-		public void init(int x) {
-				test[x][0]=new Ship(5,"Carrier");
-				posSave(x,0);		
-				test[x][1]=new Ship(4,"Battleship");
-				posSave(x,1);
-				test[x][2]=new Ship(3,"Cruise");
-				posSave(x,2);
-				test[x][3]=new Ship(3,"Submarine");
-				posSave(x,3);
-				test[x][4]=new Ship(2,"Destroyer");
-				posSave(x,4);
-				
-			
-		}
-		
-		
+public class shipInit extends JPanel{ //create a class that extends JPanel to let be shown on the screen
+		public static int shipNum=5; //create a variable to hold the number of ships
+		public static Ship[][] shipList=new Ship[2][shipNum]; //create an array of type ship that holds objects of type shipPos
+		// Ship[x][y] x <-- player turn, y <-- object of a ship
+		public static int turn=0; //create a variable called turn to hold the turn of the game
+		int[][][][] pos=new int[2][5][5][2];//create an array of integers called pos
+		//pos[x][y][z][a] x<-- player turn. y<-- ships number, z <-- ship length/the max length of a ship/how many squares a ship occupies, a <-- x or y coords
+		public void init(int player) { //create a function called init and takes in a variable called player as it would initiate each player's ships and the ships positions
+				shipList[player][0]=new Ship(5,"Carrier"); //create an object of ship in shipList[player] in slot 0 with a ship size of 5 and a name of carrier
+				posSave(player,0); //saves the position of player # ship 0;
+				shipList[player][1]=new Ship(4,"Battleship"); //same as carrier but for a ship called battleship with the length/size of 4
+				posSave(player,1); //same as previous one, but for ship 1
+				shipList[player][2]=new Ship(3,"Cruise"); //same as carrier but for a ship called cruise with the length/size of 3
+				posSave(player,2); //same as previous one, but for ship 2
+				shipList[player][3]=new Ship(3,"Submarine"); //same as carrier but for a ship called submarine with the length/size of 3
+				posSave(player,3); //same as previous one, but for ship 3
+				shipList[player][4]=new Ship(2,"Destroyer"); //same as carrier but for a ship called Destroyer with the length/size of 2
+				posSave(player,4); //same as previous one, but for ship 4
 
-	public void shipDraw(Graphics g){
+
+		}
+
+
+
+	public void shipDraw(Graphics g){//create a function called shipDraw to draw the shipSetupP1
+
+		g.setColor(Color.gray); //set colour to grey
+
+		for (int x=0;x<shipNum;x++) { //loops for the number of ships
+			if(shipList[0][x].shipPos[0][0]==shipList[0][x].shipPos[1][0]) { //checks to see if the ships have been placed horizontally
+				g.fillRect(shipList[0][x].shipPos[0][0]*50, shipList[0][x].shipPos[0][1]*50, 50, shipList[0][x].size*50); //create a rectangle that starts at the first set of xy coords given and is 50 wide and is the ship size*50 long
+			}
+			else if (shipList[0][x].shipPos[0][1]==shipList[0][x].shipPos[1][1]) {//same as horizontal, but checks for vertical ship
+				g.fillRect(shipList[0][x].shipPos[0][0]*50, shipList[0][x].shipPos[0][1]*50, shipList[0][x].size*50, 50); //same as horizontal, but the height is now 50 and the width is the ship size*50 long
+			}
+		}
+
+    }
+	public void shipDraw2(Graphics g){ //same as ship draw, but for player 2
 
 		g.setColor(Color.gray);
 
-		for (int x=0;x<tester;x++) {
-			if(test[0][x].shipPos[0][0]==test[0][x].shipPos[1][0]) {
-				g.fillRect(test[0][x].shipPos[0][0]*50, test[0][x].shipPos[0][1]*50, 50, test[0][x].size*50);
-				
-			}
-			else if (test[0][x].shipPos[0][1]==test[0][x].shipPos[1][1]) {
-				g.fillRect(test[0][x].shipPos[0][0]*50, test[0][x].shipPos[0][1]*50, test[0][x].size*50, 50);
+		for (int x=0;x<shipNum;x++) {
+			if(shipList[1][x].shipPos[0][0]==shipList[1][x].shipPos[1][0]) {
+				g.fillRect(shipList[1][x].shipPos[0][0]*50, shipList[1][x].shipPos[0][1]*50, 50, shipList[1][x].size*50);
 
 			}
-		}
-		
-    }
-	public void shipDraw2(Graphics g){
-
-		g.setColor(Color.gray);
-
-		for (int x=0;x<tester;x++) {
-			if(test[1][x].shipPos[0][0]==test[1][x].shipPos[1][0]) {
-				g.fillRect(test[1][x].shipPos[0][0]*50, test[1][x].shipPos[0][1]*50, 50, test[1][x].size*50);
-				
-			}
-			else if (test[1][x].shipPos[0][1]==test[1][x].shipPos[1][1]) {
-				g.fillRect(test[1][x].shipPos[0][0]*50, test[1][x].shipPos[0][1]*50, test[1][x].size*50, 50);
+			else if (shipList[1][x].shipPos[0][1]==shipList[1][x].shipPos[1][1]) {
+				g.fillRect(shipList[1][x].shipPos[0][0]*50, shipList[1][x].shipPos[0][1]*50, shipList[1][x].size*50, 50);
 
 			}
 		}
-		
-    }
-	public void turnDraw(Graphics g) {
 
-    	if(turn==0) {
+    }
+	public void turnDraw(Graphics g) { //create a unction called turn draw to determine who's turn it is and draws the ships
+
+    	if(turn==0) { //if turn is 0 then it draws player 0's ship
     		shipDraw(g);
     	}
-    	else if (turn==1) {
+    	else if (turn==1) { //if turn is 1 then it draws player 1's ship
     		shipDraw2(g);
     	}
-    	else {
+    	else { // if not then it says there is an error
     		System.out.println("Error");
     	}
-       
-    }
-	public void posSave(int p, int x) {
-		
-			if(test[p][x].shipPos[0][0]==test[p][x].shipPos[1][0]) {
-				//x pos are the same
-				for(int y=0;y<test[p][x].size;y++) {
-					pos[p][x][y][0]=test[p][x].shipPos[0][0];
-					pos[p][x][y][1]=test[p][x].shipPos[0][1]+y;
-				}
-				
-			}
-			else if(test[p][x].shipPos[0][1]==test[p][x].shipPos[1][1]) {
-				//y pos are the same
-				for(int y=0;y<test[p][x].size;y++) {
-					pos[p][x][y][0]=test[p][x].shipPos[0][0]+y;
-					pos[p][x][y][1]=test[p][x].shipPos[0][1];
-				}
-				for(int e=5;e>test[p][x].size;e--) {
-					pos[p][x][e][0]=-1;
-					pos[p][x][e][1]=-1;
-				}
-			}
-		
-	}
-   
-}
 
+    }
+	public void posSave(int p, int x) { //create a function called posSave to save the position of the ship and all the squares occupied by thie ship
+
+			if(shipList[p][x].shipPos[0][0]==shipList[p][x].shipPos[1][0]) { //checks to see if the ship is palced horizontally
+				//x pos are the same
+				for(int y=0;y<shipList[p][x].size;y++) { //loops for the size of the ship
+					pos[p][x][y][0]=shipList[p][x].shipPos[0][0]; //sets the x position <-- x stays same cause it is placed horizontally
+					pos[p][x][y][1]=shipList[p][x].shipPos[0][1]+y; //sets the y position to be the same as the previous one plus 1
+				}
+
+			}
+			else if(shipList[p][x].shipPos[0][1]==shipList[p][x].shipPos[1][1]) { //checks to see if the ship is palced vertically, exact same as the horizonal one, but for vertically placed
+				//y pos are the same
+				for(int y=0;y<shipList[p][x].size;y++) {
+					pos[p][x][y][0]=shipList[p][x].shipPos[0][0]+y; //sets the x position to be the same as the previous one plus 1
+					pos[p][x][y][1]=shipList[p][x].shipPos[0][1];  //sets the y position <-- x stays same cause it is placed vertically
+				}
+			}
+	}
+}

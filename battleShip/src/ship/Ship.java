@@ -88,7 +88,6 @@ public class Ship {
         }
 
        return shipPos;
-       //test
     }
 
     public boolean lenCheck(int len, int x1, int y1, int x2, int y2){
