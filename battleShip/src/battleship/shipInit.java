@@ -9,7 +9,7 @@ import ship.Ship;
 public class shipInit extends JPanel{
 		public static Ship[][] test=new Ship[2][5];
 		public static int turn=0;
-		public static int tester=1;
+		public static int tester=5;
 		int[][][][] pos=new int[2][5][5][2];
 		public void init(int x) {
 				test[x][0]=new Ship(5,"Carrier");
@@ -77,19 +77,15 @@ public class shipInit extends JPanel{
 		
 			if(test[p][x].shipPos[0][0]==test[p][x].shipPos[1][0]) {
 				//x pos are the same
-				for(int y=0;y<test[x][0].size;y++) {
+				for(int y=0;y<test[p][x].size;y++) {
 					pos[p][x][y][0]=test[p][x].shipPos[0][0];
 					pos[p][x][y][1]=test[p][x].shipPos[0][1]+y;
 				}
-				for(int e=5;e>test[p][x].size;e--) {
-					pos[p][x][e][0]=-1;
-					pos[p][x][e][1]=-1;
-				//setting ships with less than 5 spots to have -1 in other slots up to it.
-                                }
+				
 			}
 			else if(test[p][x].shipPos[0][1]==test[p][x].shipPos[1][1]) {
 				//y pos are the same
-				for(int y=0;y<test[0][x].size;y++) {
+				for(int y=0;y<test[p][x].size;y++) {
 					pos[p][x][y][0]=test[p][x].shipPos[0][0]+y;
 					pos[p][x][y][1]=test[p][x].shipPos[0][1];
 				}
