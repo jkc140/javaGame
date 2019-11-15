@@ -199,7 +199,7 @@ public class BattleShip extends JPanel{
                 		ender=false;
                 	}
                 }
-
+           
             System.out.println("player after turn "+sI.turn);
             if(sI.turn==0) {
             	sI.turn=1;

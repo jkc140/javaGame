@@ -33,36 +33,36 @@ public class squareAttack extends BattleshipAttackClone{
     	System.out.println("Checking hit");
     	int pCheck;
    	 
-   	if(turn==0) {
-            pCheck=1;
-   	}
-   	else {
-            pCheck=0;
-   	}
-   	for(int x=0;x<4;x++) {
-            hitOrMiss[x]="";
-   	}
-   	for(int atNum=0;atNum<4;atNum++) {
-            for(int sNum=0;sNum<1;sNum++) {
-   		if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
+    	if(turn==0) {
+    			pCheck=1;
+    	}
+    	else {
+    			pCheck=0;
+    	}
+    	for(int x=0;x<4;x++) {
+    			hitOrMiss[x]="";
+    	}
+    	for(int atNum=0;atNum<4;atNum++) {
+            for(int sNum=0;sNum<5;sNum++) {
+            	if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
                     break;
-  		}
-  		else {
+            	}
+            	else {
                     for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
                         if((squareCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&squareCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
                             hitOrMiss[atNum]="hit";
                             shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;
-   	                    if(shipList[pCheck][sNum].health==0){
+                            if(shipList[pCheck][sNum].health==0){
                                 shipList[pCheck][sNum].sunk=true;
                             }
                             break;
-   				 }
-   			else{
+                        }
+                        else{
                             hitOrMiss[atNum]="miss";
-   			}
+                        }
                     }
-  		}
+            	}
             }
-   	}
+    	}
     }
 }

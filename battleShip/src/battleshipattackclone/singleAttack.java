@@ -20,32 +20,32 @@ public class singleAttack extends BattleshipAttackClone{
     public void checkHit( int turn, int[][][][]shipPos,Ship[][]shipList){
     	int pCheck;
    	 
-   	if(turn==0) {
-            pCheck=1;
-   	}
-   	else {
-            pCheck=0;
-   	}
-   	hitOrMiss[0]="";
-   	for(int sNum=0;sNum<1;sNum++) {
-            if(hitOrMiss[0].equalsIgnoreCase("hit")) {
-                break;
+    	if(turn==0) {
+    			pCheck=1;
+    	}
+    	else {
+    			pCheck=0;
+    	}
+    	hitOrMiss[0]="";
+    	for(int sNum=0;sNum<5;sNum++) {
+    		if(hitOrMiss[0].equalsIgnoreCase("hit")) {
+    			break;
+    		}
+    		else {
+    			for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
+    				if((singleCoords[0][0]==shipPos[pCheck][sNum][pNum][0])&&singleCoords[0][1]==shipPos[pCheck][sNum][pNum][1]) {
+    					hitOrMiss[0]="hit";
+    					shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;   	            
+    					if(shipList[pCheck][sNum].health==0){
+    						shipList[pCheck][sNum].sunk=true;
+    					}
+    					break;
+    				}
+    				else{
+    					hitOrMiss[0]="miss";
+    				}
+    			}
             }
-            else {
-  		for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
-                    if((singleCoords[0][0]==shipPos[pCheck][sNum][pNum][0])&&singleCoords[0][1]==shipPos[pCheck][sNum][pNum][1]) {
-   	                hitOrMiss[0]="hit";
-   	                shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;   	            
-   	                if(shipList[pCheck][sNum].health==0){
-   	                    shipList[pCheck][sNum].sunk=true;
-   	                }
-   	                break;
-                    }
-                    else{
-   	                hitOrMiss[0]="miss";
-                    }
-   		}
-            }
-   	} 	 
+   		} 	 
     }
 }

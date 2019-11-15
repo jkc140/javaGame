@@ -46,26 +46,28 @@ public class crossAttack extends BattleshipAttackClone{
     	    hitOrMiss[x]="";
     	}
     	for(int atNum=0;atNum<5;atNum++) {
-            for(int sNum=0;sNum<1;sNum++) {
-       		if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
-                    break;
-      		}
-      		else {
-                    for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
-       			if((crossCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&crossCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
-                            hitOrMiss[atNum]="hit";
-                            shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;
-       	                
-                            if(shipList[pCheck][sNum].health==0){
-                                shipList[pCheck][sNum].sunk=true;
-                            }
-                            break;
-       			}
-       			else{
-                            hitOrMiss[atNum]="miss";
-       			}
-                    }
-      		}
+            for(int sNum=0;sNum<5;sNum++) {
+            	if(hitOrMiss[atNum].equalsIgnoreCase("hit")) {
+                    	break;
+            	}
+            	else {
+      				for(int pNum=0;pNum<shipList[pCheck][sNum].size;pNum++) {
+
+      					if((crossCoords[atNum][0]==shipPos[pCheck][sNum][pNum][0])&&crossCoords[atNum][1]==shipPos[pCheck][sNum][pNum][1]) {
+      						hitOrMiss[atNum]="hit";
+      						shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;
+      						if(shipList[pCheck][sNum].health==0){
+      							System.out.println("Sunk");	
+      							shipList[pCheck][sNum].sunk=true;
+      						}
+      						break;
+      					}
+      					else{
+      						System.out.println("Miss");	
+      							hitOrMiss[atNum]="miss";
+      					}
+      				}
+            	}
             }
        	}
     }
