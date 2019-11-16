@@ -30,49 +30,22 @@ public class shipInit extends JPanel{ //create a class that extends JPanel to le
 
 
 
-	public void shipDraw(Graphics g){//create a function called shipDraw to draw the shipSetupP1
+	public void shipDraw(Graphics g,int player){//create a function called shipDraw to draw the shipSetupP1
 
 		g.setColor(Color.gray); //set colour to grey
 
 		for (int x=0;x<shipNum;x++) { //loops for the number of ships
-			if(shipList[0][x].shipPos[0][0]==shipList[0][x].shipPos[1][0]) { //checks to see if the ships have been placed horizontally
-				g.fillRect(shipList[0][x].shipPos[0][0]*50, shipList[0][x].shipPos[0][1]*50, 50, shipList[0][x].size*50); //create a rectangle that starts at the first set of xy coords given and is 50 wide and is the ship size*50 long
+			if(shipList[player][x].shipPos[0][0]==shipList[player][x].shipPos[1][0]) { //checks to see if the ships have been placed horizontally
+				g.fillRect(shipList[player][x].shipPos[0][0]*50, shipList[player][x].shipPos[0][1]*50, 50, shipList[0][x].size*50); //create a rectangle that starts at the first set of xy coords given and is 50 wide and is the ship size*50 long
 			}
-			else if (shipList[0][x].shipPos[0][1]==shipList[0][x].shipPos[1][1]) {//same as horizontal, but checks for vertical ship
-				g.fillRect(shipList[0][x].shipPos[0][0]*50, shipList[0][x].shipPos[0][1]*50, shipList[0][x].size*50, 50); //same as horizontal, but the height is now 50 and the width is the ship size*50 long
-			}
-		}
-
-    }
-	public void shipDraw2(Graphics g){ //same as ship draw, but for player 2
-
-		g.setColor(Color.gray);
-
-		for (int x=0;x<shipNum;x++) {
-			if(shipList[1][x].shipPos[0][0]==shipList[1][x].shipPos[1][0]) {
-				g.fillRect(shipList[1][x].shipPos[0][0]*50, shipList[1][x].shipPos[0][1]*50, 50, shipList[1][x].size*50);
-
-			}
-			else if (shipList[1][x].shipPos[0][1]==shipList[1][x].shipPos[1][1]) {
-				g.fillRect(shipList[1][x].shipPos[0][0]*50, shipList[1][x].shipPos[0][1]*50, shipList[1][x].size*50, 50);
-
+			else if (shipList[player][x].shipPos[0][1]==shipList[player][x].shipPos[1][1]) {//same as horizontal, but checks for vertical ship
+				g.fillRect(shipList[player][x].shipPos[0][0]*50, shipList[player][x].shipPos[0][1]*50, shipList[player][x].size*50, 50); //same as horizontal, but the height is now 50 and the width is the ship size*50 long
 			}
 		}
 
     }
-	public void turnDraw(Graphics g) { //create a unction called turn draw to determine who's turn it is and draws the ships
+	
 
-    	if(turn==0) { //if turn is 0 then it draws player 0's ship
-    		shipDraw(g);
-    	}
-    	else if (turn==1) { //if turn is 1 then it draws player 1's ship
-    		shipDraw2(g);
-    	}
-    	else { // if not then it says there is an error
-    		System.out.println("Error");
-    	}
-
-    }
 	public void posSave(int p, int x) { //create a function called posSave to save the position of the ship and all the squares occupied by thie ship
 
 			if(shipList[p][x].shipPos[0][0]==shipList[p][x].shipPos[1][0]) { //checks to see if the ship is palced horizontally

@@ -86,7 +86,7 @@ public class BattleShip extends JPanel{ //creates a class called battleship that
         	Font gridFont=new Font("Verdana", Font.PLAIN,12); //create a new object of class Font to be used for the grid
         	g.setFont(gridFont); //set the font to be gridFont
     		grid(g); //calls function grid to draw the grid
-        	sI.turnDraw(g); //calls function turn draw from the object sI (obejct of shipInit) and it will draw the ships for that player
+        	sI.shipDraw(g,sI.turn); //calls function turn draw from the object sI (obejct of shipInit) and it will draw the ships for that player
         	if(attacking==true) { // checks to see if the markers have to be drawn
         		hMark.drawMarker(g,sI.turn); //calls function drawMarker from the hitMarker class by using the object hMark, which is an obejct of hitMarker
         	}
