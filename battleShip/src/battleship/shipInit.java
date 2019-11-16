@@ -11,7 +11,7 @@ public class shipInit extends JPanel{ //create a class that extends JPanel to le
 		public static Ship[][] shipList=new Ship[2][shipNum]; //create an array of type ship that holds objects of type shipPos
 		// Ship[x][y] x <-- player turn, y <-- object of a ship
 		public static int turn=0; //create a variable called turn to hold the turn of the game
-		public int[][][][] pos=new int[2][5][5][2];//create an array of integers called pos
+		int[][][][] pos=new int[2][5][5][2];//create an array of integers called pos
 		//pos[x][y][z][a] x<-- player turn. y<-- ships number, z <-- ship length/the max length of a ship/how many squares a ship occupies, a <-- x or y coords
 		public void init(int player) { //create a function called init and takes in a variable called player as it would initiate each player's ships and the ships positions
 				shipList[player][0]=new Ship(5,"Carrier"); //create an object of ship in shipList[player] in slot 0 with a ship size of 5 and a name of carrier
@@ -30,13 +30,13 @@ public class shipInit extends JPanel{ //create a class that extends JPanel to le
 
 
 
-	public void shipDraw(Graphics g,int player){//create a function called shipDraw to draw the shipSetupP1
-
+	public void shipDraw(Graphics g, int player){//create a function called shipDraw to draw the shipSetupP1
+		System.out.println("Drawing for "+ player);
 		g.setColor(Color.gray); //set colour to grey
 
 		for (int x=0;x<shipNum;x++) { //loops for the number of ships
 			if(shipList[player][x].shipPos[0][0]==shipList[player][x].shipPos[1][0]) { //checks to see if the ships have been placed horizontally
-				g.fillRect(shipList[player][x].shipPos[0][0]*50, shipList[player][x].shipPos[0][1]*50, 50, shipList[0][x].size*50); //create a rectangle that starts at the first set of xy coords given and is 50 wide and is the ship size*50 long
+				g.fillRect(shipList[player][x].shipPos[0][0]*50, shipList[player][x].shipPos[0][1]*50, 50, shipList[player][x].size*50); //create a rectangle that starts at the first set of xy coords given and is 50 wide and is the ship size*50 long
 			}
 			else if (shipList[player][x].shipPos[0][1]==shipList[player][x].shipPos[1][1]) {//same as horizontal, but checks for vertical ship
 				g.fillRect(shipList[player][x].shipPos[0][0]*50, shipList[player][x].shipPos[0][1]*50, shipList[player][x].size*50, 50); //same as horizontal, but the height is now 50 and the width is the ship size*50 long
@@ -44,7 +44,7 @@ public class shipInit extends JPanel{ //create a class that extends JPanel to le
 		}
 
     }
-	
+
 
 	public void posSave(int p, int x) { //create a function called posSave to save the position of the ship and all the squares occupied by thie ship
 
