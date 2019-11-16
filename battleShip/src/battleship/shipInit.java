@@ -11,7 +11,7 @@ public class shipInit extends JPanel{ //create a class that extends JPanel to le
 		public static Ship[][] shipList=new Ship[2][shipNum]; //create an array of type ship that holds objects of type shipPos
 		// Ship[x][y] x <-- player turn, y <-- object of a ship
 		public static int turn=0; //create a variable called turn to hold the turn of the game
-		int[][][][] pos=new int[2][5][5][2];//create an array of integers called pos
+		public int[][][][] pos=new int[2][5][5][2];//create an array of integers called pos
 		//pos[x][y][z][a] x<-- player turn. y<-- ships number, z <-- ship length/the max length of a ship/how many squares a ship occupies, a <-- x or y coords
 		public void init(int player) { //create a function called init and takes in a variable called player as it would initiate each player's ships and the ships positions
 				shipList[player][0]=new Ship(5,"Carrier"); //create an object of ship in shipList[player] in slot 0 with a ship size of 5 and a name of carrier
