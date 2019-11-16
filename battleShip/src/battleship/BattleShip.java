@@ -24,6 +24,8 @@ public class BattleShip extends JPanel{ //creates a class called battleship that
     public static hitMarker hMark=new hitMarker(); //create an object of class hitMarker
     public static boolean screenSwitch=false; //create a variable to determine if the screen should be switched
     public static boolean attacking=false; //create a variable to determine if the screen should show the markers
+    public static int[] sunkCount=new int[2];
+    public static boolean starting=true;
 
         public static void boardInit(){ //creating a function to initiate the screen
 
@@ -41,55 +43,24 @@ public class BattleShip extends JPanel{ //creates a class called battleship that
     }
 
 
-    public void grid(Graphics g){
-        int maxHeight=500;
-        int maxLength=500;
-        int gridSize=11;
-        int charNum=9;
-        String letter="";
-
-
-        g.setColor(Color.blue);
-        g.fillRect(50, 50, maxLength-50, maxHeight-50);
-        g.setColor(Color.black);
-
-
-        for(int x=0;x<gridSize;x++){
-            int val=0+(x*50);
-
-            g.drawLine(val, 0, val, maxHeight);
-            g.drawLine(0, val,maxLength, val);
-        }
-        for(int x=0;x<charNum;x++){
-            letter=String.valueOf((char)(65+x));
-            int val=0+(x*50);
-            g.drawString(letter, 70+val, 30);
-            g.drawString(String.valueOf(x),20,80+val);
-        }
-    }
-
-
-
-    public void switchScreen(Graphics g,int turn) { //create a class that will let the users witch players so they don't know where the others ships are
-    	Font switchFont=new Font("Verdana", Font.BOLD,40);//create an object of class font that will change the font used when drawing text
-    	g.setFont(switchFont); //set the font to switchFont (make it so that this is the font that is used
-    	g.drawString("Player "+turn,300,300); // draws/write the word player with a number roughly in the center of the screen
-    	screenSwitch=false; //set screenSwitch to false as it no longer has to do it (since it just did)
-    }
 
     public void paintComponent(Graphics g){ //overrides class paintComponents
-
+    	grid grid=new grid();
+    	
     	if(screenSwitch==true) { // checks to see if screenSwitch is true (has to switch screen)
-    		switchScreen(g,sI.turn); //calls function switchScreen with the parameters of g (graphics) and the player turn
+    		grid.switchScreen(g,sI.turn); //calls function switchScreen with the parameters of g (graphics) and the player turn
+    		screenSwitch=false; //set screenSwitch to false as it no longer has to do it (since it just did)
     	}
     	else { //if it does not have to switch players
         	Font gridFont=new Font("Verdana", Font.PLAIN,12); //create a new object of class Font to be used for the grid
         	g.setFont(gridFont); //set the font to be gridFont
-    		grid(g); //calls function grid to draw the grid
-        	sI.shipDraw(g,sI.turn); //calls function turn draw from the object sI (obejct of shipInit) and it will draw the ships for that player
-        	if(attacking==true) { // checks to see if the markers have to be drawn
-        		hMark.drawMarker(g,sI.turn); //calls function drawMarker from the hitMarker class by using the object hMark, which is an obejct of hitMarker
+    		grid.gridInit(g); //calls function grid to draw the grid
+    		if (starting==true) { //draws ships only at the beginning of the game
+            	sI.shipDraw(g,sI.turn); //calls function turn draw from the object sI (obejct of shipInit) and it will draw the ships for that player
         	}
+        	//if(attacking==true) { // checks to see if the markers have to be drawn
+        		hMark.drawMarker(g,sI.turn); //calls function drawMarker from the hitMarker class by using the object hMark, which is an obejct of hitMarker
+        	//}
     	}
     }
 
@@ -149,9 +120,13 @@ public class BattleShip extends JPanel{ //creates a class called battleship that
         sI.init(0); //calls function init from shipInit with parameters 0 (for player 0)
         boardInit(); //calls function boardInit to create the screen and draws the ships
         hideScreen(); //hides the screen
+        sI.turn=1; //setting turn to be 1
         sI.init(1); //calls function init from shipInit with parameters 1 (for player 1)
-        sI.turn=0; //sets turn to be player 0
         screen.show(); //shows the screen
+        screen.repaint(); //repainting the screen
+        delay(3); //delay program for 3 seconds
+        starting=false; //setting starting to false, so it doesn't show the ships
+        sI.turn=0; //sets turn to be player 0
         do { //repeats until the game is over
         	hideScreen(); //hides the screen
         	screenSwitch=true; //tell that the screen needs to be switched
@@ -162,34 +137,6 @@ public class BattleShip extends JPanel{ //creates a class called battleship that
                 screen.repaint(); //repaints the board (show markers)
                 delay(5); //delays for 5 second
                 attacking=false; //set attacking to false (hide markers)
-                int sunkCount=0; //create variable called sunk to check to hold the number of sunk ships
-                for(int x=0;x<5;x++) {//checks each ship
-                	int tempTurn; //create a variable to hold the opponents turn
-
-                	if(sI.turn==0) { //checks to see who's turn it is and the switches the turn to be the opponents
-                		tempTurn=1;
-                	}
-                	else {
-                		tempTurn=0;
-                	}
-
-
-                	if(sI.shipList[tempTurn][x].sunk==true) { //checks to see if a ship has been sunk
-                		sunkCount++;//adds one to ship sunk
-                	}
-                	else { //if the ships is not sunk it sets sunkcount to zero as they did not win
-                		sunkCount=0;
-                	}
-
-
-                	if(sunkCount==5) { //if sunkcount is 5 then all ships are sunk and player wins
-                		ender=true; //sets ender to true, meaning game is over
-
-                	}
-                	else { //if not all ships are sunk game continues
-                		ender=false;
-                	}
-                }
 
             if(sI.turn==0) {//switches the players turn
             	sI.turn=1;
@@ -197,7 +144,12 @@ public class BattleShip extends JPanel{ //creates a class called battleship that
             else {
             	sI.turn=0;
             }
-
+            if(sunkCount[sI.turn]==5) { //checking to see if sunkCount for player is equal to 5, 
+            	ender=true; //if it is they lost and the game is over
+            }
+            else {
+            	ender =false; //if it is not the game continues
+            }
 
 
         }while(ender==false); //loops until ender is true
