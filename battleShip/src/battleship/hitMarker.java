@@ -22,20 +22,12 @@ public class hitMarker extends JPanel{ //create a class called hitmarker and mak
             else { //if it the first attack
               temp=x; //temp is equal to x
             }
-	          hit[pTurn][(temp)]=HOM[x]; //sets hit to equal hit or miss
-        }
-        temp=0; //reset temp
-        for(int x=0;x<attackSize;x++) { //loops number of attack position
-          if (hit[pTurn][0]!=null){ //if this is no the first attacks
-            temp=x+totalAttack[pTurn]; //set temp to be the total number of attacks plus the current attack number of the latest attack
+	        hit[pTurn][(temp)]=HOM[x]; //sets hit to equal hit or miss
+	        for(int y=0;y<2;y++) {  //loops twice as there is two coords (x and y)
+		    	attackCoords[pTurn][temp][y]=coords[x][y];		 //sets the x and y coords for the attack
           }
-          else { //if it the first attack
-            temp=x; //temp is equal to x
-          }
-            for(int y=0;y<2;y++) {  //loops twice as there is two coords (x and y)
-		            attackCoords[pTurn][temp][y]=coords[x][y];		 //sets the x and y coords for the attack
-            }
         }
+        
         totalAttack[pTurn] += attackSize; //set totalAttack for the player who's turn it is to be equal to the previous total attack plus the latest attack size
     }
     public void drawMarker(Graphics g, int pTurn) { //create a function called drawMarker to draw the markers on the grid
