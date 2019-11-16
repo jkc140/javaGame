@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class grid extends JPanel{
 
-    public void boardInit(Graphics g){ //create a function called boardInit to create the grid
+    public void gridInit(Graphics g){ //create a function called boardInit to create the grid
         int maxHeight=500; //create a variable to hold the max height of the board
         int maxLength=500; //create a variable to hold the max width of the board
         int gridSize=11; //create a variable to hold how many columns and rows are on the grid (number of columns is 1 less because gridsize holds the number of lines that divide columns and rows)
@@ -30,10 +30,17 @@ public class grid extends JPanel{
             g.drawString(String.valueOf(x),20,80+val);  //draws the numbers on the left most column roughly in the center of the row
         }
     }
+    public void switchScreen(Graphics g,int turn) { //create a class that will let the users witch players so they don't know where the others ships are
+    	Font switchFont=new Font("Verdana", Font.BOLD,40);//create an object of class font that will change the font used when drawing text
+    	g.setFont(switchFont); //set the font to switchFont (make it so that this is the font that is used
+    	g.drawString("Player "+turn,300,300); // draws/write the word player with a number roughly in the center of the screen
+    	
+    }
+    
   public Dimension getPreferredSize() { //calls funtion getPrefferedSize
 	    return new Dimension(100,100);  //set the Dimension to be 100 by 100
 	}
   public void paintComponent(Graphics g){ //override the function paintComponent
-	  boardInit(g); //calls function boardInit to show board
+	  gridInit(g); //calls function boardInit to show board
   }
 }
