@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package battleshipattackclone;
- import ship.*;
+ import battleship.BattleShip;
+import ship.*;
 /**
  *
  * @author S331474817
@@ -53,6 +54,7 @@ public class squareAttack extends BattleshipAttackClone{ //create a subclass of 
                             shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1;//subtract 1 from the health of the ship being checked
                             if(shipList[pCheck][sNum].health==0){// checks to see if the ship's health is 0
                                 shipList[pCheck][sNum].sunk=true; //tells the ship is sunk
+                                BattleShip.sunkCount[pCheck]++;
                             }
                             break;//breaks out of the loop if it is a hit
                         }

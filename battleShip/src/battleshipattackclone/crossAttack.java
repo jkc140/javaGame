@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package battleshipattackclone;
+import battleship.BattleShip;
 import ship.*; //import ship package
 /**
  *
@@ -35,6 +36,7 @@ public class crossAttack extends BattleshipAttackClone{ //create a subclass of b
      public void checkHit(int turn, int[][][][]shipPos,Ship[][] shipList){ //create a function to check to see if the attack was a hit
     	int pCheck; //create a variable called pCheck to hold the opponent player
 
+
     	 if(turn==0) { // if it is player 0 turn, then it will switch/store the opponent as 1 to pCheck
             pCheck=1;
     	 }
@@ -56,6 +58,8 @@ public class crossAttack extends BattleshipAttackClone{ //create a subclass of b
       						shipList[pCheck][sNum].health=shipList[pCheck][sNum].health-1; //subtract 1 from the health of the ship being checked
       						if(shipList[pCheck][sNum].health==0){ // checks to see if the ship's health is 0
       							shipList[pCheck][sNum].sunk=true; //tells the ship is sunk
+      							BattleShip.sunkCount[pCheck]++;
+        						
       						}
       						break; //breaks out of the loop if it is a hit
       					}
