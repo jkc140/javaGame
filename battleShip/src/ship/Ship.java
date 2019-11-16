@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ship;
-
-/**
- *
- * @author S331474817
- */
 import java.util.*;
 import java.util.Arrays;
 import java.lang.*;
@@ -22,16 +12,20 @@ public class Ship {
     /**
      * @param args the command line arguments
      */
+    //declaring variables
         private String name;
         public int size;
-        public int health;
-        public boolean sunk;
+        private int health;
+        private boolean sunk;
         static int[][] shipPosition;
         static String[][] board = returnBoard();
         public  String shipName ;
         public  int shipLength;
         public   int[][] shipPos = new int[2][2];
-     public int [] SmallestPos = new int [2];
+        public int [] SmallestPos = new int [2];
+        public static String[] LetterCoord = {"a","b","c","d","e","f","g","h","i"};
+        public static String[] NumberCoord = {"1","2","3","4","5","6","7","8","9"};
+        public static boolean cycle = true;
 
     public static void main(String[] args) {
         System.out.println(Arrays.deepToString(board));
@@ -40,6 +34,7 @@ public class Ship {
         System.out.println(Arrays.deepToString(board));
     }
 
+    //Constructor
     public Ship(int length, String name){
         this.name = name;
         this.size = length;
@@ -49,11 +44,13 @@ public class Ship {
     }
 
 
+    //Starting method to get position
     public  int[][] returnposition(String name, int length){
         System.out.println("Enter a position for the: "+name);
         int counter = 0;
         while (1 == 1 ){
             for(int x=0;x < 2;x++){
+                cycle = true;
                         for(int y=0;y < 2;y++){
                             String axis;
                             if (y == 1){
@@ -88,12 +85,14 @@ public class Ship {
         }
 
        return shipPos;
+       //test
     }
 
+    //Checks if the coordinates picked are the correct length away or not
     public boolean lenCheck(int len, int x1, int y1, int x2, int y2){
     int y = y2 - y1;
     int x = x2 - x1;
-    System.out.printf("lenght: %d Coordinate 1: %d,%d Coordinate 2: %d,%d Y distance: %d X distance: %d \n", len, x1, y1 , x2, y2, y , x);
+    //System.out.printf("lenght: %d Coordinate 1: %d,%d Coordinate 2: %d,%d Y distance: %d X distance: %d \n", len, x1, y1 , x2, y2, y , x);
 
         if (y == len - 1 || x == len - 1){
             System.out.println("Length check passed");
@@ -107,6 +106,7 @@ public class Ship {
 
     }
 
+    //Checks if the position picked overlaps with any other ships that have already been placed
     public boolean overlapCheck(int x1, int y1, int x2, int y2){
         int boardOverlapped = 0;
         for (int x = x1 - 1; x < x2; x ++ ){
@@ -121,7 +121,7 @@ public class Ship {
         }
 
         if (boardOverlapped == 0){
-        System.out.println("Overlap check passed");
+        //System.out.println("Overlap check passed");
     	return true;
         }
         else {
@@ -130,9 +130,21 @@ public class Ship {
         }
     }
 
+    //if the x value entered is a letter converts it to the same integer value
+    public static String LetterToNumber(String pos){
+    for (int x = 0; x < 9; x ++ ){ 
+        if (pos.equalsIgnoreCase(LetterCoord[x])){
+            pos = NumberCoord[x];
+
+        }
+    } 
+    cycle = false;
+    return pos;
+    }
+    
 
 
-
+    //Getting the x and y coordinates from the user
     public static int check(String axis){
         Scanner input = new Scanner(System.in);
         int pos;
@@ -140,8 +152,11 @@ public class Ship {
                 try{
                     System.out.print("Enter the "+ axis +" value ");
                     String num=input.next();
+                    while (cycle == true){
+                      num = LetterToNumber(num);    
+                      }
                     pos = Integer.parseInt(num);
-                        if (pos >= 1 && pos <=20){
+                        if (pos >= 1 && pos <=9){
                            break;
                         }
                         else{
@@ -156,11 +171,12 @@ public class Ship {
     }
 
 
+    //Sets the board to empty
     public static String[][] returnBoard( )  {
 
-        String[][] board = new String[20][20];
-            for(int x=0;x < 20;x++){
-                    for(int y=0;y < 20;y++){
+        String[][] board = new String[9][9];
+            for(int x=0;x < 9;x++){
+                    for(int y=0;y < 9;y++){
                         board[x][y] = ("E");
                     }
             }
@@ -168,4 +184,5 @@ public class Ship {
     }
 
 
+    
 }
