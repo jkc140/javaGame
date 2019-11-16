@@ -21,7 +21,7 @@ public class BattleshipAttackClone { //creating a class called BattleshipAttackC
     /**
      * @return
      */
-    public String AttackChoice() { //create a function called AttackChoice to determine the attack choice of the user <-- it will return a string
+    public void AttackChoice() { //create a function called AttackChoice to determine the attack choice of the user <-- it will return a string
         String Choice=""; //create a function called choice that will hold the input of the user
         shipInit sI=new shipInit(); //create an object of type shipInit
         hitMarker hMark=new hitMarker(); //create an object of class hitMarker
@@ -66,7 +66,6 @@ public class BattleshipAttackClone { //creating a class called BattleshipAttackC
                 valid=false; //sets valid to false
             }
         }while(valid==false); //loops until valid is true
-        return Choice; //returns user input
     }
   
     public void getCoords(){ //create a function called getCoords to get the coordinates of the base attack
