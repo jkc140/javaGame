@@ -31,17 +31,15 @@ public class BattleshipAttackClone { //creating a class called BattleshipAttackC
             if ("1".equals(AttackChoice)){ //check to see if the user choce cross attack
                 Choice="Cross"; //sets choice as cross
                 valid=true; //sets valid to be true
-                break;
             }
             else if("2".equals(AttackChoice)){ //same as cross attack, but  for 2x2 (square) attack
                 Choice="2x2";
                 valid=true;
-                break;
             }
             else if ("3".equalsIgnoreCase(AttackChoice)){ //same as cross attack, but for single attack
                 Choice="Single";
                 valid=true;
-                break;}
+            }
             else{ //if input is invalid
                 System.out.println("Invalid entry try again"); //tells the user it is an invalid input
                 valid=false; //sets valid to false
@@ -72,7 +70,7 @@ public class BattleshipAttackClone { //creating a class called BattleshipAttackC
                     valid=false; //set valid to false
                 }
                 if(valid ==true){ //checks to see if valid is ture (as this won't work if it is not an integer)
-                  if((coords[x]>=0)&&(coords[x]<=8){ //checks to see if the attack is in the grid
+                  if((coords[x]>=0)&&(coords[x]<=8)){ //checks to see if the attack is in the grid
                     valid=true; //set valid to true
                   }
                   else{ //if attack is outside grid tells user that input is invalid and sets valid to false
