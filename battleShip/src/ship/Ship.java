@@ -15,8 +15,8 @@ public class Ship {
     //declaring variables
         private String name;
         public int size;
-        private int health;
-        private boolean sunk;
+        public int health;
+        public boolean sunk;
         static int[][] shipPosition;
         static String[][] board = returnBoard();
         public  String shipName ;
